@@ -18,7 +18,7 @@
 
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 
-        var Pacman = function (game) {
+    var Pacman = function (game) {
 
         this.map = null;
         this.layer = null;
@@ -27,7 +27,7 @@
         this.safetile = 14;
         this.gridsize = 16;
 
-        this.speed = 120;
+        this.speed = 150;
         this.threshold = 3;
 
         this.marker = new Phaser.Point();
@@ -59,7 +59,7 @@
 
             //  We need this because the assets are on github pages
             //  Remove the next 2 lines if running locally
-            this.load.baseURL = 'https://p12kall.github.io/pacman/';
+            this.load.baseURL = 'https://ioniodi.github.io/pacman/';
             this.load.crossOrigin = 'anonymous';
 
             this.load.image('dot', 'assets/dot.png');
@@ -218,7 +218,7 @@
 
         },
 
-        eat: function (pacman, dot) {
+        eatDot: function (pacman, dot) {
 
             dot.kill();
 
