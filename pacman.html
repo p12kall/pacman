@@ -76,7 +76,7 @@
             this.load.crossOrigin = 'anonymous';
 
             this.load.image('dot', 'assets/dot.png');
-            this.load.image('tiles', 'assets/pacman-tiles.png');
+            this.load.image('tiles', 'assets/pacman-tiles_1.png');
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
             this.load.tilemap('map', 'assets/pacman-map.json', null, Phaser.Tilemap.TILED_JSON);
 
@@ -115,9 +115,9 @@
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
 
-            scoreText = game.add.text(170, 0,'Score: 0', {font: '18px Comic Sans', fill: 'yellow'});
-            scoreBonus = game.add.text(340, 0,'Bonus: 0', {font: '14px Comic Sans', fill: 'white'});
-            livesText = game.add.text(5, 0,'Lives: 3',{font: '14px Comic Sans', fill: 'red'});
+            scoreText = game.add.text(180, 0,'Score: 0', {font: '17px Verdana', fill: 'yellow'});
+            scoreBonus = game.add.text(360, 0,'Bonus: 0', {font: '15px Verdana', fill: 'white'});
+            livesText = game.add.text(5, 0,' 3',{font: '15px Verdana', fill: 'red'});
         },
 
         checkKeys: function () {
