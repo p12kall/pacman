@@ -16,10 +16,10 @@
 </head>
 <body>
 
-<!--     <audio autoplay loop>
+    <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" type= "audio/mp3" >
     </audio>
-     -->
+    
     <script type="text/javascript">
 
     var lives = 3;
@@ -28,8 +28,8 @@
     var score = 0;
     var scoreText;
         
-    var bonus = 0;
-    var bonusText;
+//    var bonus = 0;
+//    var bonusText;
         
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 
@@ -95,10 +95,10 @@
             this.layer = this.map.createLayer('Pacman');
 
             this.dots = this.add.physicsGroup();
-	    this.bonusDots = this.add.physicsGroup();
+//	    this.bonusDots = this.add.physicsGroup();
 
             this.map.createFromTiles(7, this.safetile, 'dot', this.layer, this.dots);
-	    this.map.createFromTiles(38, this.safetile, 'bonusDot', this.layer, this.bonusDots);
+//	    this.map.createFromTiles(38, this.safetile, 'bonusDot', this.layer, this.bonusDots);
 
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
             this.dots.setAll('x', 6, false, false, 1);
@@ -123,7 +123,7 @@
             this.move(Phaser.LEFT);
 
             scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'yellow'});
-            bonusText = game.add.text(360, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});
+//            bonusText = game.add.text(360, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});
             livesText = game.add.text(30, 0, ' 3',{font: '16px Arial Black', fill: 'red'});
         },
 
@@ -254,15 +254,15 @@
             }
         },
 
-	eatBonusDot: function (pacman, bonusDot) {
-	    bonusDot.kill();
-	    bonus += 10;
-            bonusText.text = 'Bonus (+10): ' ++;
-	    scoreText.text = 'Score: ' + bonus;
-	    if (this.dots.total === 0)
-            {
-                this.dots.callAll('revive');
-            }
+// 	eatBonusDot: function (pacman, bonusDot) {
+// 	    bonusDot.kill();
+// 	    bonus += 10;
+//             bonusText.text = 'Bonus (+10): ' ++;
+// 	    scoreText.text = 'Score: ' + bonus;
+// 	    if (this.dots.total === 0)
+//             {
+//                 this.dots.callAll('revive');
+//             }
 		
 		
         update: function () {
