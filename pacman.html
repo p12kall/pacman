@@ -17,7 +17,7 @@
 <body>
 
     <audio autoplay loop>
-        <source src="assets/The Fray - Mahna Mahna.mp3" type="audio/mp3">
+        <source src="assets/The Fray - Mahna Mahna.mp3" type= "audio/mp3" >
     </audio>
     
     <script type="text/javascript">
@@ -95,16 +95,16 @@
             this.layer = this.map.createLayer('Pacman');
 
             this.dots = this.add.physicsGroup();
-//	    this.bonusDots = this.add.physicsGroup();
+	    this.bonusDots = this.add.physicsGroup();
 
             this.map.createFromTiles(7, this.safetile, 'dot', this.layer, this.dots);
-//	    this.map.createFromTiles(38, this.safetile, 'bonusDot', this.layer, this.bonusDots);
+	    this.map.createFromTiles(38, this.safetile, 'bonusDot', this.layer, this.bonusDots);
 
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
             this.dots.setAll('x', 6, false, false, 1);
             this.dots.setAll('y', 6, false, false, 1);
-//            this.bonusDots.setAll('x', 6, false, false, 1);
-//            this.bonusDots.setAll('y', 6, false, false, 1);
+            this.bonusDots.setAll('x', 6, false, false, 1);
+            this.bonusDots.setAll('y', 6, false, false, 1);
 
             //  Pacman should collide with everything except the safe tile
             this.map.setCollisionByExclusion([this.safetile], true, this.layer);
@@ -254,18 +254,22 @@
             }
         },
 
-//	eatBonusDot: function (pacman, bonusDot) {
-//	    bonusDot.kill();
-//	    bonus += 10;
-//          bonusText.text = 'Bonus: ' +=1;
-//	    scoreText.text = 'Score: ' + bonus;
+	eatBonusDot: function (pacman, bonusDot) {
+	    bonusDot.kill();
+	    bonus += 10;
+            bonusText.text = 'Bonus (+10): ' ++;
+	    scoreText.text = 'Score: ' + bonus;
+	    if (this.dots.total === 0)
+            {
+                this.dots.callAll('revive');
+            }
 		
 		
         update: function () {
           
             this.physics.arcade.collide(this.pacman, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
-//            this.physics.arcade.overlap(this.pacman, this.bonusDots, this.eatBonusDot, null, this);
+            this.physics.arcade.overlap(this.pacman, this.bonusDots, this.eatBonusDot, null, this);
 
             this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
