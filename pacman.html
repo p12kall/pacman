@@ -16,9 +16,9 @@
 </head>
 <body>
 
-<!--     <audio autoplay loop>
+    <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" type= "audio/mp3" >
-    </audio> -->
+    </audio>
     
     <script type="text/javascript">
 
@@ -109,7 +109,7 @@
             this.bonusDots.setAll('y', 6, false, false, 1);		//for bonus
 
             //  Pacman should collide with everything except the safe tile
-            this.map.setCollisionByExclusion([this.safetile,this.safetileBonus], true, this.layer);
+            this.map.setCollisionByExclusion([this.safetile, this.safetileBonus], true, this.layer);
 //	    this.map.setCollisionByExclusion([this.safetileBonus], true, this.layer);		//for bonus
 		
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
@@ -257,8 +257,8 @@
             }
         },
 
-// 	eatBonusDot: function (pacman, bonus) {
-// 	    bonus.kill();
+ 	eatBonusDot: function (pacman, bonus) {
+ 	    bonus.kill();
 //  	    bonus += 10;
 // 	    bonusText.text = 'Bonus (+10): ' ++;
 // 	    scoreText.text = 'Score: ' + bonus;
@@ -266,7 +266,7 @@
 //             {
 //                 this.bonusDots.callAll('revive');
 //             }
-//	},
+	},
 		
         update: function () {
 
