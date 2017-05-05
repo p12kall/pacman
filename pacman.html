@@ -16,9 +16,9 @@
 </head>
 <body>
 
-<!--     <audio autoplay loop>
+    <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" type= "audio/mp3" >
-    </audio> -->
+    </audio>
     
     <script type="text/javascript">
 
@@ -40,7 +40,7 @@
         this.pacman = null;
 
         this.safetile = 14;
-	this.safetileBonus = 14;
+	this.safetileBonus = 10;
         this.gridsize = 16;
 
         this.speed = 130;
@@ -79,7 +79,7 @@
             this.load.crossOrigin = 'anonymous';
 
             this.load.image('dot', 'assets/dot.png');
-	    this.load.image('bonus', 'assets/bonusDot.png');			//image for bonus
+	    this.load.spritesheet('bonus', 'assets/bonusDot.png', 20, 20);			//image for bonus
             this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
             this.load.tilemap('map', 'assets/pacman-map.json', null, Phaser.Tilemap.TILED_JSON);
