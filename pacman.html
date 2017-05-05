@@ -16,9 +16,9 @@
 </head>
 <body>
 
-    <audio autoplay loop>
+<!--     <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" type= "audio/mp3" >
-    </audio>
+    </audio> -->
     
     <script type="text/javascript">
 
@@ -100,7 +100,7 @@
 	    this.bonusDots = this.add.physicsGroup();		//for bonus
 
             this.map.createFromTiles(7, this.safetile, 'dot', this.layer, this.dots);
-	    this.map.createFromTiles(38, this.safetileBonus, 'bonus', this.layer, this.bonusDots);		//for bonus
+	    this.map.createFromTiles(7, this.safetileBonus, 'bonus', this.layer, this.bonusDots);		//for bonus
 
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
             this.dots.setAll('x', 6, false, false, 1);
@@ -125,9 +125,10 @@
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
 
-            scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'yellow'});		//display score
-            bonusText = game.add.text(360, 0, 'Bonus (+10): 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
             livesText = game.add.text(30, 0, ' 3',{font: '16px Arial Black', fill: 'red'});			//display lives
+            scoreText = game.add.text(170, 0, 'Score: 0', {font: '16px Verdana', fill: 'yellow'});		//display score
+            bonusText = game.add.text(300, 0, 'Bonus (+10): 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
+
         },
 
         checkKeys: function () {
