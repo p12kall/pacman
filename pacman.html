@@ -16,9 +16,9 @@
 </head>
 <body>
 
-<!--     <audio autoplay loop>
+    <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" type= "audio/mp3" >
-    </audio> -->
+    </audio>
     
     <script type="text/javascript">
 
@@ -256,13 +256,13 @@
 
  	eatBonDot: function (pacman, bonDot) {
  	    bonDot.kill();
-//   	    bonusScore += 10;
-//  	    bonusText.text = 'Bonus (+10): ' ++;
+  	    bonusScore += 10;
+ 	    bonusText.text = 'Bonus (+10): ' ++;
   	    scoreText.text = 'Score: ' + 10;	//bonusScore;
-	    if (this.bonusDots.total === 0)
-            {
-                this.bonusDots.callAll('revive');
-            }
+// 	    if (this.bonusDots.total === 0)
+//             {
+//                 this.bonusDots.callAll('revive');
+//             }
 	},
 		
         update: function () {
