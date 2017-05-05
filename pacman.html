@@ -16,9 +16,9 @@
 </head>
 <body>
 
-    <audio autoplay loop>
+<!--     <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" type= "audio/mp3" >
-    </audio>
+    </audio> -->
     
     <script type="text/javascript">
 
@@ -100,7 +100,7 @@
 	    this.bonusDots = this.add.physicsGroup();		//for bonus
 
             this.map.createFromTiles(7, this.safetile, 'dot', this.layer, this.dots);
-	    this.map.createFromTiles(7, this.safetileBonus, 'bonus', this.layer, this.bonusDots);		//for bonus
+	    this.map.createFromTiles(37, this.safetileBonus, 'bonus', this.layer, this.bonusDots);		//for bonus
 
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
             this.dots.setAll('x', 6, false, false, 1);
@@ -109,8 +109,8 @@
             this.bonusDots.setAll('y', 6, false, false, 1);		//for bonus
 
             //  Pacman should collide with everything except the safe tile
-            this.map.setCollisionByExclusion([this.safetile, this.safetileBonus], true, this.layer);
-//	    this.map.setCollisionByExclusion([this.safetileBonus], true, this.layer);		//for bonus
+            this.map.setCollisionByExclusion([this.safetile], true, this.layer);
+	    this.map.setCollisionByExclusion([this.safetileBonus], true, this.layer);		//for bonus
 		
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
             this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
