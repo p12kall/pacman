@@ -16,20 +16,20 @@
 </head>
 <body>
 
-    <audio autoplay loop>
+<!--     <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" type= "audio/mp3" >
-    </audio>
+    </audio> -->
     
     <script type="text/javascript">
 
     var lives = 3;
-    var livesText;
+    var livesText = '';
 
     var score = 0;
-    var scoreText;
+    var scoreText = '';
         
    var bonusScore = 0;
-   var bonusText;
+   var bonusText = '';
         
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 
@@ -104,10 +104,10 @@
 	    this.map.createFromTiles(38, this.safetile2, 'bonus', this.layer, this.bonusDots);		//for bonus
 
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
-            this.dots.setAll('x', 6, false, false, 1);
-            this.dots.setAll('y', 6, false, false, 1);
-            this.bonusDots.setAll('x', 6, false, false, 1);		//for bonus
-            this.bonusDots.setAll('y', 6, false, false, 1);		//for bonus
+//             this.dots.setAll('x', 6, false, false, 1);
+//             this.dots.setAll('y', 6, false, false, 1);
+//             this.bonusDots.setAll('x', 6, false, false, 1);		//for bonus
+//             this.bonusDots.setAll('y', 6, false, false, 1);		//for bonus
 
             //  Pacman should collide with everything except the safe tile
             this.map.setCollisionByExclusion([this.safetile], true, this.layer);
