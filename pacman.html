@@ -109,8 +109,8 @@
             this.bonusDots.setAll('y', 6, false, false, 1);		//for bonus
 
             //  Pacman should collide with everything except the safe tile
-            this.map.setCollisionByExclusion([this.safetile], true, this.layer);
-	    this.map.setCollisionByExclusion([this.safetileBonus], true, this.layer);		//for bonus
+            this.map.setCollisionByExclusion([this.safetile,this.safetileBonus], true, this.layer);
+//	    this.map.setCollisionByExclusion([this.safetileBonus], true, this.layer);		//for bonus
 		
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
             this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
@@ -126,7 +126,7 @@
             this.move(Phaser.LEFT);
 
             livesText = game.add.text(30, 0, ' 3',{font: '16px Arial Black', fill: 'red'});			//display lives
-            scoreText = game.add.text(180, 0, 'Score: 0', {font: '17px Verdana', fill: 'yellow'});		//display score
+            scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'yellow'});		//display score
             bonusText = game.add.text(320, 0, 'Bonus(10): 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
 
         },
