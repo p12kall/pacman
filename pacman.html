@@ -16,9 +16,9 @@
 </head>
 <body>
 
-<!--     <audio autoplay loop>
+    <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" type= "audio/mp3" >
-    </audio> -->
+    </audio>
     
     <script type="text/javascript">
 
@@ -79,9 +79,10 @@
             this.load.crossOrigin = 'anonymous';
 
             this.load.image('dot', 'assets/dot.png');
-	    this.load.spritesheet('bonus', 'assets/bonusDot.png', 20, 20);			//image for bonus
+	    this.load.spritesheet('bonus', 'assets/bonusDot.png', 16, 16);			//image for bonus
             this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
+	    this.load.spritesheet('lives', 'assets/lives.png', 16, 16);				//image for lives
             this.load.tilemap('map', 'assets/pacman-map.json', null, Phaser.Tilemap.TILED_JSON);
 
             //  Needless to say, graphics (C)opyright Namco
@@ -99,13 +100,13 @@
 	    this.bonusDots = this.add.physicsGroup();		//for bonus
 
             this.map.createFromTiles(7, this.safetile, 'dot', this.layer, this.dots);
-	    this.map.createFromTiles(30, this.safetileBonus, 'bonus', this.layer, this.bonusDots);		//for bonus
+	    this.map.createFromTiles(38, this.safetileBonus, 'bonus', this.layer, this.bonusDots);		//for bonus
 
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
-//             this.dots.setAll('x', 6, false, false, 1);
-//             this.dots.setAll('y', 6, false, false, 1);
-//             this.bonusDots.setAll('x', 6, false, false, 1);		//for bonus
-//             this.bonusDots.setAll('y', 6, false, false, 1);		//for bonus
+            this.dots.setAll('x', 6, false, false, 1);
+            this.dots.setAll('y', 6, false, false, 1);
+            this.bonusDots.setAll('x', 6, false, false, 1);		//for bonus
+            this.bonusDots.setAll('y', 6, false, false, 1);		//for bonus
 
             //  Pacman should collide with everything except the safe tile
             this.map.setCollisionByExclusion([this.safetile], true, this.layer);
