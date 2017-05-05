@@ -78,7 +78,7 @@
             this.load.crossOrigin = 'anonymous';
 
             this.load.image('dot', 'assets/dot.png');
-	    this.load.spritesheet('bonDot', 'assets/bonusDot.png');			//image for bonus
+	    this.load.image('bonDot', 'assets/bonusDot.png');			//image for bonus
             this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
 //	    this.load.spritesheet('life', 'assets/lives.png', 16, 16);				//image for lives
@@ -100,11 +100,11 @@
 
             this.map.createFromTiles(7, this.safetile, 'dot', this.layer, this.dots);
 //            this.map.createFromTiles(37, this.safetile, 'life', this.layer, this.lives);			//for lives
-	    this.map.createFromTiles(35, this.safetile, 'bonDot', this.layer, this.bonusDots);		//for bonus
+	    this.map.createFromTiles(38, this.safetile, 'bonDot', this.layer, this.bonusDots);		//for bonus
 
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
-            this.dots.setAll('x', 6, false, false, 1);
-            this.dots.setAll('y', 6, false, false, 1);
+            this.dots.setAll('x', 0, false, false, 1);
+            this.dots.setAll('y', 0, false, false, 1);
             this.bonusDots.setAll('x', 0, false, false, 1);		//for bonus
             this.bonusDots.setAll('y', 0, false, false, 1);		//for bonus
 
