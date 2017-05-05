@@ -16,9 +16,9 @@
 </head>
 <body>
 
-<!--     <audio autoplay loop>
+    <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" type= "audio/mp3" >
-    </audio> -->
+    </audio>
     
     <script type="text/javascript">
 
@@ -28,8 +28,8 @@
     var score = 0;
     var scoreText;
         
-//    var bonus = 0;
-//    var bonusText;
+   var bonus = 0;
+   var bonusText;
         
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 
@@ -78,7 +78,7 @@
             this.load.crossOrigin = 'anonymous';
 
             this.load.image('dot', 'assets/dot.png');
-	    this.load.image('bonusDot', 'assets/bonusDot.png');
+	    this.load.image('bonus', 'assets/bonusDot.png');
             this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
             this.load.tilemap('map', 'assets/pacman-map.json', null, Phaser.Tilemap.TILED_JSON);
@@ -95,16 +95,16 @@
             this.layer = this.map.createLayer('Pacman');
 
             this.dots = this.add.physicsGroup();
-//	    this.bonusDots = this.add.physicsGroup();
+	    this.bonusDots = this.add.physicsGroup();
 
             this.map.createFromTiles(7, this.safetile, 'dot', this.layer, this.dots);
-//	    this.map.createFromTiles(38, this.safetile, 'bonusDot', this.layer, this.bonusDots);
+	    this.map.createFromTiles(38, this.safetile, 'bonus', this.layer, this.bonusDots);
 
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
             this.dots.setAll('x', 6, false, false, 1);
             this.dots.setAll('y', 6, false, false, 1);
-//            this.bonusDots.setAll('x', 6, false, false, 1);
-//            this.bonusDots.setAll('y', 6, false, false, 1);
+           this.bonusDots.setAll('x', 6, false, false, 1);
+           this.bonusDots.setAll('y', 6, false, false, 1);
 
             //  Pacman should collide with everything except the safe tile
             this.map.setCollisionByExclusion([this.safetile], true, this.layer);
@@ -123,7 +123,7 @@
             this.move(Phaser.LEFT);
 
             scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'yellow'});
-//            bonusText = game.add.text(360, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});
+            bonusText = game.add.text(360, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});
             livesText = game.add.text(30, 0, ' 3',{font: '16px Arial Black', fill: 'red'});
         },
 
@@ -254,22 +254,22 @@
             }
         },
 
-// 	eatBonusDot: function (pacman, bonusDot) {
-// 	    bonusDot.kill();
-// 	    bonus += 10;
-//             bonusText.text = 'Bonus (+10): ' ++;
-// 	    scoreText.text = 'Score: ' + bonus;
-// 	    if (this.dots.total === 0)
-//             {
-//                 this.dots.callAll('revive');
-//             }
+	eatBonusDot: function (pacman, bonus) {
+	    bonus.kill();
+	    bonus += 10;
+            bonusText.text = 'Bonus (+10): ' ++;
+	    scoreText.text = 'Score: ' + bonus;
+	    if (this.bonusDots.total === 0)
+            {
+                this.bonusDots.callAll('revive');
+            }
 		
 		
         update: function () {
           
             this.physics.arcade.collide(this.pacman, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
-//            this.physics.arcade.overlap(this.pacman, this.bonusDots, this.eatBonusDot, null, this);
+            this.physics.arcade.overlap(this.pacman, this.bonusDots, this.eatBonusDot, null, this);
 
             this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
