@@ -251,6 +251,7 @@
             if (this.dots.total === 0)
             {
                 this.dots.callAll('revive');
+		this.bonDot.callAll('revive');
             }
         },
 
@@ -258,7 +259,7 @@
  	    bonDot.kill();
   	    bonusScore += 10;
  	    bonusText.text = 'Bonus : ' + bonusScore;
-  	    score = score + bonusScore;
+  	    score = score += 10;
 	    scoreText.text = 'Score: ' + score;
 // 	    if (this.bonusDots.total === 0)
 //             {
@@ -269,7 +270,7 @@
         update: function () {
 
             this.physics.arcade.collide(this.pacman, this.layer);
-            this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
+//            this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
             this.physics.arcade.overlap(this.pacman, this.bonusDots, this.eatBonDot, null, this);		//for bonus
 
             this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
