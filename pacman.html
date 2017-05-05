@@ -257,8 +257,8 @@
  	eatBonDot: function (pacman, bonDot) {
  	    bonDot.kill();
   	    bonusScore += 10;
- 	    bonusText.text = 'Bonus (+10): ' ++;
-  	    scoreText.text = 'Score: ' + 10;	//bonusScore;
+ 	    bonusText.text = 'Bonus (+10): ' +bonusScore;
+//  	    scoreText.text = 'Score: ' + 10;	//bonusScore;
 // 	    if (this.bonusDots.total === 0)
 //             {
 //                 this.bonusDots.callAll('revive');
