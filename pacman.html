@@ -40,6 +40,7 @@
         this.pacman = null;
 
         this.safetile = 14;
+	this.safetileBonus = 14;
         this.gridsize = 16;
 
         this.speed = 130;
@@ -78,7 +79,7 @@
             this.load.crossOrigin = 'anonymous';
 
             this.load.image('dot', 'assets/dot.png');
-	    this.load.image('bonus', 'assets/bonusDot.png');
+	    this.load.image('bonus', 'assets/bonusDot.png');		//image for bonus
             this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
             this.load.tilemap('map', 'assets/pacman-map.json', null, Phaser.Tilemap.TILED_JSON);
@@ -95,20 +96,21 @@
             this.layer = this.map.createLayer('Pacman');
 
             this.dots = this.add.physicsGroup();
-	    this.bonusDots = this.add.physicsGroup();
+	    this.bonusDots = this.add.physicsGroup();		//for bonus
 
             this.map.createFromTiles(7, this.safetile, 'dot', this.layer, this.dots);
-	    this.map.createFromTiles(38, this.safetile, 'bonus', this.layer, this.bonusDots);
+	    this.map.createFromTiles(38, this.safetileBonus, 'bonus', this.layer, this.bonusDots);		//for bonus
 
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
-            this.dots.setAll('x', 6, false, false, 1);
-            this.dots.setAll('y', 6, false, false, 1);
-           this.bonusDots.setAll('x', 6, false, false, 1);
-           this.bonusDots.setAll('y', 6, false, false, 1);
+//             this.dots.setAll('x', 6, false, false, 1);
+//             this.dots.setAll('y', 6, false, false, 1);
+//             this.bonusDots.setAll('x', 6, false, false, 1);		//for bonus
+//             this.bonusDots.setAll('y', 6, false, false, 1);		//for bonus
 
             //  Pacman should collide with everything except the safe tile
             this.map.setCollisionByExclusion([this.safetile], true, this.layer);
-
+	    this.map.setCollisionByExclusion([this.safetileBonus], true, this.layer);		//for bonus
+		
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
             this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
             this.pacman.anchor.set(0.5);
@@ -122,9 +124,9 @@
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
 
-            scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'yellow'});
-            bonusText = game.add.text(360, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});
-            livesText = game.add.text(30, 0, ' 3',{font: '16px Arial Black', fill: 'red'});
+            scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'yellow'});		//display score
+            bonusText = game.add.text(360, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
+            livesText = game.add.text(30, 0, ' 3',{font: '16px Arial Black', fill: 'red'});			//display lives
         },
 
         checkKeys: function () {
@@ -254,22 +256,22 @@
             }
         },
 
-// 	eatBonusDot: function (pacman, bonus) {
-// 	    bonus.kill();
+	eatBonusDot: function (pacman, bonus) {
+	    bonus.kill();
 // 	    bonus += 10;
-//             bonusText.text = 'Bonus (+10): ' ++;
-// 	    scoreText.text = 'Score: ' + bonus;
-// 	    if (this.bonusDots.total === 0)
-//             {
-//                 this.bonusDots.callAll('revive');
-//             }
+         bonusText.text = 'Bonus (+10): ' ++;
+	    scoreText.text = 'Score: ' + bonus;
+	    if (this.bonusDots.total === 0)
+            {
+                this.bonusDots.callAll('revive');
+            }
 		
 		
         update: function () {
           
             this.physics.arcade.collide(this.pacman, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
-//            this.physics.arcade.overlap(this.pacman, this.bonusDots, this.eatBonusDot, null, this);
+            this.physics.arcade.overlap(this.pacman, this.bonusDots, this.eatBonusDot, null, this);		//for bonus
 
             this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
