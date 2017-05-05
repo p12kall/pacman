@@ -16,9 +16,9 @@
 </head>
 <body>
 
-    <audio autoplay loop>
+<!--     <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" type= "audio/mp3" >
-    </audio>
+    </audio> -->
     
     <script type="text/javascript">
 
@@ -159,6 +159,30 @@
         checkDirection: function (turnTo) {
 
             if (this.turning === turnTo || this.directions[turnTo] === null || this.directions[turnTo].index !== this.safetile)
+            {
+                //  Invalid direction if they're already set to turn that way
+                //  Or there is no tile there, or the tile isn't index 1 (a floor tile)
+                return;
+            }
+
+            //  Check if they want to turn around and can
+            if (this.current === this.opposites[turnTo])
+            {
+                this.move(turnTo);
+            }
+            else
+            {
+                this.turning = turnTo;
+
+                this.turnPoint.x = (this.marker.x * this.gridsize) + (this.gridsize / 2);
+                this.turnPoint.y = (this.marker.y * this.gridsize) + (this.gridsize / 2);
+            }
+
+        },
+	    
+	checkDirection: function (turnTo) {
+
+            if (this.turning === turnTo || this.directions[turnTo] === null || this.directions[turnTo].index !== this.safetileBonus)
             {
                 //  Invalid direction if they're already set to turn that way
                 //  Or there is no tile there, or the tile isn't index 1 (a floor tile)
