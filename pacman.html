@@ -260,10 +260,10 @@
  	    bonusText.text = 'Bonus : ' + bonusScore;
   	    score = score += 10;
 	    scoreText.text = 'Score: ' + score;
-// 	    if (this.bonusDots.total === 0)
-//             {
-//                 this.bonusDots.callAll('revive');
-//             }
+	    if (( this.bonusDots.total === 0 ) && ( dots.total === 0 ))
+            {
+                this.bonusDots.callAll('revive');
+            }
 	},
 		
         update: function () {
