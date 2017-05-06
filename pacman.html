@@ -281,10 +281,11 @@
  	    bonusText.text = 'Bonus: ' + bonusScore;
   	    score = score += 10;
 	    scoreText.text = 'Score: ' + score;
-// 	    if ( this.bonusDots.total === 0 )
-//             {
+	    if ( this.bonusDots.total === 0 )
+            {
+		    lives ++;
 //                 this.bonusDots.callAll('revive');
-//             }
+	    }
 	},
 		
         update: function () {
