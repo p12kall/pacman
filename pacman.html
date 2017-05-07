@@ -16,10 +16,10 @@
 </head>
 <body>
 
-    <audio autoplay loop>
+<!--     <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" 
 		type= "audio/mp3" >
-    </audio>
+    </audio> -->
     
     <script type="text/javascript">
 
@@ -264,6 +264,7 @@
             if (this.dots.total === 0)
             {
                 this.dots.callAll('revive');
+		this.bonusDots.callAll('revive');
             }
         },
 
