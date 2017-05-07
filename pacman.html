@@ -16,10 +16,10 @@
 </head>
 <body>
 
-    <audio autoplay loop>
+<!--     <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" 
 		type= "audio/mp3" >
-    </audio>
+    </audio> -->
     
     <script type="text/javascript">
 
@@ -248,13 +248,15 @@
             score ++;
             scoreText.text = 'Score: ' + score;
 		
-	     if ( score > ( Math.floor( Math.random() * 6 ) +189 ) )
-            	this.bonusDots.callAll('revive');
-            else if ( score == ( Math.floor( Math.random() * 6 ) +99 ) )
+	     if ( score > ( Math.floor( Math.random() * 6 ) +249 ) )
             	this.bonusDots.callAll('kill');
-            else if ( score == ( Math.floor( Math.random() * 6 ) +79 ) )
+	    else if ( score == ( Math.floor( Math.random() * 6 ) +229 ) )
+		this.bonusDots.callAll('revive');
+            else if ( score == ( Math.floor( Math.random() * 6 ) +169 ) )
+            	this.bonusDots.callAll('kill');
+            else if ( score == ( Math.floor( Math.random() * 6 ) +139 ) )
             	this.bonusDots.callAll('revive');
-            else if ( score == ( Math.floor( Math.random() * 6 ) +9 ) )
+            else if ( score == ( Math.floor( Math.random() * 6 ) +19 ) )
             	this.bonusDots.callAll('kill');
             else if ( score == 0 )
             	this.bonusDots.callAll('revive');
