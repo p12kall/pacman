@@ -247,6 +247,17 @@
             dot.kill();
             score ++;
             scoreText.text = 'Score: ' + score;
+		
+	     if (this.dots.total > 150)	
+            	this.bonusDots.callAll('revive');
+            else if (this.dots.total == 100)
+            	this.bonusDots.callAll('kill');
+            else if (this.dots.total == 75)
+            	this.bonusDots.callAll('revive');
+            else if (this.dots.total == 25)
+            	this.bonusDots.callAll('kill');
+            else if (this.dots.total == 0)
+            	this.bonusDots.callAll('revive');
 
             if (this.dots.total === 0)
             {
