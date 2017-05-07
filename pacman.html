@@ -16,10 +16,10 @@
 </head>
 <body>
 
-    <audio autoplay loop>
+<!--     <audio autoplay loop>
         <source src="assets/The Fray - Mahna Mahna.mp3" 
 		type= "audio/mp3" >
-    </audio>
+    </audio> -->
     
     <script type="text/javascript">
 
@@ -249,15 +249,15 @@
             scoreText.text = 'Score: ' + score;
 		
 	     if (this.dots.total > 150)	
-            	this.bonusDots.callAll('revive');
+            	this.bonusDots.call('revive');
             else if (this.dots.total == 100)
-            	this.bonusDots.callAll('kill');
+            	this.bonusDots.call('kill');
             else if (this.dots.total == 75)
-            	this.bonusDots.callAll('revive');
+            	this.bonusDots.call('revive');
             else if (this.dots.total == 25)
-            	this.bonusDots.callAll('kill');
+            	this.bonusDots.call('kill');
             else if (this.dots.total == 0)
-            	this.bonusDots.callAll('revive');
+            	this.bonusDots.call('revive');
 
             if (this.dots.total === 0)
             {
