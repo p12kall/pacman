@@ -248,13 +248,13 @@
             score ++;
             scoreText.text = 'Score: ' + score;
 		
-	     if ( score > ( Math.floor( Math.random() * 201 ) +189 ) )
+	     if ( score > ( Math.floor( Math.random() * 6 ) +189 ) )
             	this.bonusDots.callAll('revive');
-            else if ( score == ( Math.floor( Math.random() * 105 ) +99 ) )
+            else if ( score == ( Math.floor( Math.random() * 6 ) +99 ) )
             	this.bonusDots.callAll('kill');
-            else if ( score == ( Math.floor( Math.random() * 85 ) +79 ) )
+            else if ( score == ( Math.floor( Math.random() * 6 ) +79 ) )
             	this.bonusDots.callAll('revive');
-            else if ( score == ( Math.floor( Math.random() * 15 ) +9 ) )
+            else if ( score == ( Math.floor( Math.random() * 6 ) +9 ) )
             	this.bonusDots.callAll('kill');
             else if ( score == 0 )
             	this.bonusDots.callAll('revive');
