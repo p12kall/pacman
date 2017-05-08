@@ -247,6 +247,10 @@
 
         eatDot: function (pacman, dot) {
             dot.kill();
+	 
+         var audio = new Audio('assets/dotCollecting.wav');
+         audio.play();	    
+		
             score ++;
             scoreText.text = 'Score: ' + score;
 		
