@@ -23,14 +23,14 @@
     
     <script type="text/javascript">
 
-    var lives = 3;
-    var livesText = '';
+//    var lives = 3;
+  //  var livesText = '';
 
-    var score = 0;
-    var scoreText = '';
+//    var score = 0;
+  //  var scoreText = '';
         
-    var bonusScore = 0;
-    var bonusText = '';
+//    var bonusScore = 0;
+  //  var bonusText = '';
         
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	    var timer;
@@ -56,6 +56,11 @@
 
         this.current = Phaser.NONE;
         this.turning = Phaser.NONE;
+	
+	this.score = 0;
+	this.lives = 3;
+	this.bonus = 0;
+	this.timer = 0;
 
     };
 
@@ -133,7 +138,7 @@
 	    this.timeText = game.add.text(180, 10, totalTime, { fontSize: '22px', fill: 'red' });
 			timer = game.time.create(false);//  Create our Timer
 			timer.loop(1000, this.updateCounter, this);//  Set a TimerEvent to occur after 2 seconds			
-			timer.start(); //  Start the timer running - this is important!//  It won't start automatically, allowing you to hook it to button events and the like.
+			timer.start(); //  Start the timer running - this is important. It won't start automatically, allowing you to hook it to button events and the like.
 	},
 	    
 	updateCounter: function () {
