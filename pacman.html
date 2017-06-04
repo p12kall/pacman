@@ -32,14 +32,30 @@
     var bonusText = '';
         
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
-	    var timer;
-	    var totalTime = 59;
+	//var timer;
+	//var totalTime = 59;
+
+
+	var OK = false;
+	var timer;
+	var tcount = 4;
+	var scount = "";
+	var gametimeM = "-";
+	var gametimeS = "-";
+	var Rtile = "";
+	var SunSerialKiller = 0;
+	enemyDirection = null;
+	enemyRandomDirection = null;
 
     var Pacman = function (game) {
 
         this.map = null;
         this.layer = null;
         this.pacman = null;
+	this.enemy1 = null;
+	this.enemy2 = null;
+	this.enemy3 = null;
+	this.enemySpeed = 100;
 
         this.safetile = 14;
         this.gridsize = 16;
@@ -55,7 +71,10 @@
 
         this.current = Phaser.NONE;
         this.turning = Phaser.NONE;
-
+	this.enemyCurrent = Phaser.NONE;
+        this.enemyTurning = Phaser.NONE;
+	this.enemyDirection = Phaser.NONE;
+	this.enemyRandomDirection = Phaser.NONE;
     };
 
     Pacman.prototype = {
@@ -83,7 +102,9 @@
 	    this.load.image('bonDot', 'assets/bonusDot.png');			//image for bonus
             this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
+	    this.load.spritesheet('enemy', 'assets/enemy.png', 32, 32);		//image for enemies
             this.load.tilemap('map', 'assets/pacman-map.json', null, Phaser.Tilemap.TILED_JSON);
+	    
 
             //  Needless to say, graphics (C)opyright Namco
 
@@ -140,17 +161,17 @@
 			totalTime--;
 		}
 		else {
-			this.lives--;
+			lives--;
 			totalTime = 59;
-			if (this.lives == 0) {
+			if (lives == 0) {
 				totalTime = 0;
 				this.pacman.destroy();
-				this.GameOver = game.add.text(220, 20, 'GAME OVER', {fontSize: '22px', fill: 'red'});
+				GameOver = game.add.text(220, 20, 'GAME OVER', {fontSize: '22px', fill: 'red'});
 				timer.stop();
 			}
 			if (totalTime == 0) {
 				this.pacman.destroy();
-				this.GameOver = game.add.text(180, 150, 'GAME OVER', {fontSize: '42px', fill: 'red'});
+				GameOver = game.add.text(180, 150, 'GAME OVER', {fontSize: '42px', fill: 'red'});
 				timer.stop();
 			}
 		}
