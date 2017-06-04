@@ -64,10 +64,11 @@
 
         this.current = Phaser.NONE;
         this.turning = Phaser.NONE;
-	//this.enemyCurrent = Phaser.NONE;
-        //this.enemyTurning = Phaser.NONE;
-	//this.enemyDirection = Phaser.NONE;
-	//this.enemyRandomDirection = Phaser.NONE;
+=======================================================	
+	this.enemyCurrent = Phaser.NONE;
+        this.enemyTurning = Phaser.NONE;
+	this.enemyDirection = Phaser.NONE;
+	this.enemyRandomDirection = Phaser.NONE;
     };
 
     Pacman.prototype = {
@@ -95,7 +96,7 @@
 	    this.load.image('bonDot', 'assets/bonusDot.png');			//image for bonus
             this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
-	   // this.load.spritesheet('enemy', 'assets/enemy.png', 32, 32);		//image for enemies
+	    this.load.spritesheet('enemy', 'assets/enemy.png', 32, 32);		//image for enemies
             this.load.tilemap('map', 'assets/pacman-map.json', null, Phaser.Tilemap.TILED_JSON);
 	    
 
@@ -141,13 +142,13 @@
             this.move(Phaser.LEFT);
 	    
 //==============================================================================================
-this.z1 = this.add.sprite((9 * 16) + 8, (13 * 16) + 8, 'zombie', 0);
-this.z1.anchor.set(0.5);
+this.enemy1 = this.add.sprite((9 * 16) + 8, (13 * 16) + 8, 'enemies', 0);
+this.enemy1.anchor.set(0.5);
 this.enemy1.speed = 100;
-this.physics.arcade.enable(this.z1);
+this.physics.arcade.enable(this.enemy1);
 this.enemy1.body.setSize(16, 16, 0, 0);
-this.enemy1.animations.add('walk', [0, 1, 2], 40, true);
-this.enemy1.play('walk');
+this.enemy1.animations.add('much', [0, 1, 2, 1], 20, true);
+this.enemy1.play('much');
 this.enemyCurrent = Phaser.RIGHT;
 //===============================================================================================
 			
@@ -342,7 +343,7 @@ this.enemyCurrent = Phaser.RIGHT;
 	},
 	
 //===========================================================================
-	checkZEnemyKeys: function (enemies) {
+	checkEnemyKeys: function (enemies) {
 			if( this.enemyCurrent == Phaser.NONE ) { 
 				this.enemyCurrent = Phaser.RIGHT; 
 			}
@@ -364,7 +365,7 @@ this.enemyCurrent = Phaser.RIGHT;
 			}
         },
 		
-		checkEnemyDirection: function (turnTo) {
+	checkEnemyDirection: function (turnTo) {
             if (this.enemyTurning === turnTo || this.directions[turnTo] === null || this.directions[turnTo].index !== 1)
             {
                 //  Invalid direction if they're already set to turn that way
@@ -384,8 +385,8 @@ this.enemyCurrent = Phaser.RIGHT;
             }
         },
         turnEnemy: function (enemies) {
-            var cx = Math.floor(z.x);
-            var cy = Math.floor(z.y);
+            var cx = Math.floor(enemies.x);
+            var cy = Math.floor(enemies.y);
             //  This needs a threshold, because at high speeds you can't turn because the coordinates skip past
             if (!this.math.fuzzyEqual(cx, this.turnPoint.x, this.threshold) || !this.math.fuzzyEqual(cy, this.turnPoint.y, this.threshold))
             {
