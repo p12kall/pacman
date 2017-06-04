@@ -127,12 +127,13 @@
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
 	
+	    //Set and Display TIMER
 	    this.timeText = game.add.text(200, 15, totalTime, {font: '22px Arial Black', fill: 'white' });
-		timer = game.time.create(false);
-		timer.loop(1000, this.updateCounter, this);
-		timer.start();
+	    timer = game.time.create(false);
+	    timer.loop(1000, this.updateCounter, this);
+	    timer.start();
 	    
-	    livesText = game.add.text(30, 0, lives, {font: '16px Arial Black', fill: 'red'});			//display lives
+	    livesText = game.add.text(30, 0, ' '+lives, {font: '16px Arial Black', fill: 'red'});		//display lives
             scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'yellow'});		//display score
             bonusText = game.add.text(350, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
 
@@ -149,7 +150,7 @@
 			if (lives == 0) {
 				totalTime = 0;
 				this.pacman.destroy();
-				this.GameOver = game.add.text(+30%, 180, 'GAME OVER', {font: '35px Verdana', fill: 'red'});
+				this.GameOver = game.add.text(100, 180, 'GAME OVER', {font: '35px Verdana', fill: 'red'});
 				timer.stop();
 			}
 		}
