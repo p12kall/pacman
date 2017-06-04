@@ -129,7 +129,7 @@
 	
 	    this.timeText = game.add.text(200, 15, totalTime, {font: '22px Arial Black', fill: 'white' });
 		timer = game.time.create(false);
-		timer.loop(10, this.updateCounter, this);
+		timer.loop(3, this.updateCounter, this);
 		timer.start();
 	    
 	    livesText = game.add.text(30, 0, ' 3', {font: '16px Arial Black', fill: 'red'});			//display lives
@@ -144,6 +144,7 @@
 		}
 		else {
 			lives--;
+			livesText.text = ' ' + lives;
 			totalTime = 5;
 			if (lives == 0) {
 				totalTime = 0;
