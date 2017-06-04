@@ -141,10 +141,10 @@
 	    
 	updateCounter: function () {		
 		if (totalTime > 0) {
-			totalTime--;
 			if(totalTime = 3) {
-				this.timeText = game.add.text(200, 15, totalTime, {fill: 'red'});
+				this.timeText.text = {fill: 'red'};
 			}
+			totalTime--;
 		}
 		else {
 			lives--;
