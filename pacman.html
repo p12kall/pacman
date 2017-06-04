@@ -142,14 +142,14 @@
 	updateCounter: function () {		
 		if (totalTime > 0) {
 			totalTime--;
+			if(totalTime = 3) {
+				this.timeText = game.add.text(200, 15, totalTime, {fill: 'red'});
+			}
 		}
 		else {
 			lives--;
 			livesText.text = ' ' + lives;
 			totalTime = 5;
-			if(totalTime = 3) {
-				this.timeText = game.add.text(200, 15, totalTime, {fill: 'red'});
-			}
 			if (lives == 0) {
 				totalTime = 0;
 				this.pacman.destroy();
