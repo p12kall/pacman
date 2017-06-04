@@ -128,13 +128,13 @@
             this.move(Phaser.LEFT);
 	
 	    //Set and Display TIMER
-	    this.timeText = game.add.text(200, 15, totalTime, {font: '22px Arial Black', fill: 'white' });
+	    this.timeText = game.add.text(200, 15, totalTime, {font: '22px Arial Black', fill: 'yellow' });
 	    timer = game.time.create(false);
 	    timer.loop(1000, this.updateCounter, this);
 	    timer.start();
 	    
 	    livesText = game.add.text(30, 0, ' '+lives, {font: '16px Arial Black', fill: 'red'});		//display lives
-            scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'yellow'});		//display score
+            scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'white'});		//display score
             bonusText = game.add.text(350, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
 
 	},
@@ -147,10 +147,13 @@
 			lives--;
 			livesText.text = ' ' + lives;
 			totalTime = 5;
+			if(totalTime = 3) {
+				this.timeText = game.add.text(200, 15, totalTime, {fill: 'red'});
+			}
 			if (lives == 0) {
 				totalTime = 0;
 				this.pacman.destroy();
-				this.GameOver = game.add.text(100, 180, 'GAME OVER', {font: '35px Verdana', fill: 'red'});
+				this.GameOver = game.add.text(100, 180, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
 				timer.stop();
 			}
 		}
