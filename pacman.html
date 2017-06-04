@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+
     <title>Pacman</title>
     <meta charset="utf-8">
     <style>
@@ -11,8 +12,12 @@
 	    background-attachment: fixed;
 	    background-size: 100% auto;
         }
+	<audio  autoplay loop> 
+		<source src="assets/Mahna Mahna - 8Bit.mp3" type="audio/mpeg">
+	</audio>
     </style>
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
+    
 </head>
 <body>
     
@@ -317,8 +322,6 @@
 	},
 	
         update: function () {
-
-	    MUSIC.play('', 0, 1, true);
 	    
 	    this.timeText.text = totalTime;
             
