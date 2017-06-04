@@ -33,7 +33,7 @@
         
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 59;
+	var totalTime = 5;
 
     var Pacman = function (game) {
 
@@ -126,14 +126,16 @@
 
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
-			
+	
+		timeText = game.add.text(180, 10, totalTime, { fontSize: '22px', fill: 'red' });
+		timer = game.time.create(false);
+		timer.loop(1000, this.updateCounter, this);
+		timer.start();
+	    
 	    livesText = game.add.text(30, 0, ' 3', {font: '16px Arial Black', fill: 'red'});			//display lives
             scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'yellow'});		//display score
             bonusText = game.add.text(350, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
-	    this.timeText = game.add.text(180, 10, totalTime, { fontSize: '22px', fill: 'red' });
-		timer = game.time.create(false);		// Create our Timer
-		timer.loop(1000, this.updateCounter, this);	// Set a TimerEvent to occur after 2 seconds			
-		timer.start();					// Start the timer running - this is important. It won't start automatically, allowing you to hook it to button events and the like.
+
 	},
 	    
 	updateCounter: function () {		
