@@ -45,10 +45,10 @@
         this.map = null;
         this.layer = null;
         this.pacman = null;
-	//this.enemy1 = null;
-	//this.enemy2 = null;
-	//this.enemy3 = null;
-	//this.enemySpeed = 100;
+	this.enemy1 = null;
+	this.enemy2 = null;
+	this.enemy3 = null;
+	this.enemySpeed = 100;
 
         this.safetile = 14;
         this.gridsize = 16;
@@ -139,7 +139,18 @@
 
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
-
+	    
+//==============================================================================================
+this.z1 = this.add.sprite((9 * 16) + 8, (13 * 16) + 8, 'zombie', 0);
+this.z1.anchor.set(0.5);
+this.enemy1.speed = 100;
+this.physics.arcade.enable(this.z1);
+this.enemy1.body.setSize(16, 16, 0, 0);
+this.enemy1.animations.add('walk', [0, 1, 2], 40, true);
+this.enemy1.play('walk');
+this.enemyCurrent = Phaser.RIGHT;
+//===============================================================================================
+			
 	    livesText = game.add.text(30, 0, ' 3', {font: '16px Arial Black', fill: 'red'});			//display lives
             scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'yellow'});		//display score
             bonusText = game.add.text(350, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
@@ -150,6 +161,10 @@
 	},
 	    
 	updateCounter: function () {
+		this.moveEnemy(Phaser.LEFT, this.enemy1);
+		this.moveEnemy(Phaser.LEFT, this.enemy2);
+		this.moveEnemy(Phaser.LEFT, this.enemy3);
+		
 		if (totalTime > 0) {
 			totalTime--;
 		}
@@ -302,8 +317,10 @@
 
             if (this.dots.total === 0)
             {
-                this.dots.callAll('revive');
-		this.bonusDots.callAll('revive');
+	    	this.enemy1.destroy();
+		this.enemy2.destroy();
+		this.enemy3.destroy();
+		this.GameOver = game.add.text(190, 190, "YOU WIN!", { fontSize: "80px", fill: "white"});
             }
 	},
 
@@ -323,7 +340,136 @@
 //			this.bonusDots.callAll('revive');
 		}
 	},
+	
+//===========================================================================
+	checkZEnemyKeys: function (enemies) {
+			if( this.enemyCurrent == Phaser.NONE ) { 
+				this.enemyCurrent = Phaser.RIGHT; 
+			}
+			if( this.enemyCurrent == Phaser.RIGHT || this.enemyCurrent == Phaser.LEFT ){
+				this.enemyRandomDirection = game.rnd.integerInRange(1, 2);
+				if ( this.enemyRandomDirection == 1) { this.enemyDirection = Phaser.UP }
+				else if ( this.enemyRandomDirection == 2) { this.enemyDirection = Phaser.DOWN }
+				this.moveEnemy(this.enemyDirection, enemies);
+			}
+			else if( this.Zcurrent == Phaser.UP || this.Zcurrent == Phaser.DOWN ){
+				this.enemyRandomDirection = game.rnd.integerInRange(1, 4);
+				if ( this.enemyRandomDirection == 1) { this.enemyDirection = Phaser.LEFT }
+				else if ( this.enemyRandomDirection == 4) { this.enemyDirection = Phaser.RIGHT }
+				this.moveEnemy(this.enemyDirection, enemies);
+			}
+			if( this.enemyDirection == Phaser.NONE ){
+				this.enemyDirection = Phaser.RIGHT;
+				this.moveEnemy(this.enemyDirection, enemies);
+			}
+        },
 		
+		checkEnemyDirection: function (turnTo) {
+            if (this.enemyTurning === turnTo || this.directions[turnTo] === null || this.directions[turnTo].index !== 1)
+            {
+                //  Invalid direction if they're already set to turn that way
+                //  Or there is no tile there, or the tile isn't index 1 (a floor tile)
+                return;
+            }
+            //  Check if they want to turn around and can
+            if (this.enemyCurrent === this.opposites[turnTo])
+            {
+                this.moveEnemy(turnTo);
+            }
+            else
+            {
+                this.enemyTurning = turnTo;
+                this.turnPoint.x = (this.marker.x * this.gridsize) + (this.gridsize / 2);
+                this.turnPoint.y = (this.marker.y * this.gridsize) + (this.gridsize / 2);
+            }
+        },
+        turnEnemy: function (enemies) {
+            var cx = Math.floor(z.x);
+            var cy = Math.floor(z.y);
+            //  This needs a threshold, because at high speeds you can't turn because the coordinates skip past
+            if (!this.math.fuzzyEqual(cx, this.turnPoint.x, this.threshold) || !this.math.fuzzyEqual(cy, this.turnPoint.y, this.threshold))
+            {
+                return false;
+            }
+            //  Grid align before enemyTurning
+            enemies.x = this.turnPoint.x;
+            enemies.y = this.turnPoint.y;
+			if( enemies.body != null ){
+				enemies.body.reset(this.turnPoint.x, this.turnPoint.y);
+				this.moveEnemy(this.enemyTurning, enemies);
+				this.enemyTurning = Phaser.NONE;
+			}
+			
+            return true;
+        },
+		
+        moveEnemy: function (direction, enemies) {
+			
+            var enemySpeed = enemies.speed;
+            if (direction === Phaser.LEFT || direction === Phaser.UP)
+            {
+                enemySpeed = -enemySpeed;
+            }
+            if (direction === Phaser.LEFT || direction === Phaser.RIGHT)
+            {
+                enemies.body.velocity.x = enemySpeed;
+            }
+            else
+            {
+                enemies.body.velocity.y = enemySpeed;
+            }
+            //  Reset the scale and angle (Pacman is facing to the right in the sprite sheet)
+            enemies.scale.x = 1;
+            enemies.angle = 0;
+            if (direction === Phaser.LEFT)
+            {
+		enemies.play('walk');
+                enemies.scale.x = -1;
+            }
+	    else if (direction === Phaser.RIGHT)
+            {
+		enemies.play('walk');
+            }
+            else if (direction === Phaser.UP)
+            {
+                //this.enemy1.angle = 270;
+		enemies.play('walk');
+            }
+            else if (direction === Phaser.DOWN)
+            {
+                //this.enemy1.angle = 90;
+		enemies.play('walk');
+            }
+            this.enemyCurrent = direction;
+			if( this.enemyCurrent == Phaser.NONE ) { 
+				this.enemyCurrent = Phaser.RIGHT; 
+			}
+};
+	killPacman: function(enemies) {
+	//++++++++++++++++++++ KILL OR BE KILLED ON COLLISION WITH ZOMBIE ++++++++++++++++++++\\
+	if( SpeedCD != null ){
+		enemies.destroy();
+	}
+	else{
+		lives--;
+		this.pacman.destroy();
+		this.pacman = this.add.sprite((16 * 16) + 8, (15 * 16) + 8, 'pacman', 0);
+		this.pacman.animations.add('munchRL', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 40, true);
+		this.pacman.animations.add('munchUP', [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 40, true);
+		this.pacman.animations.add('munchDOWN', [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47], 40, true);
+		this.pacman.anchor.set(0.5);
+		this.physics.arcade.enable(this.pacman);
+		this.pacman.body.setSize(16, 16, 0, 0);
+		this.pacman.play('munchRL');
+		this.move(Phaser.NONE);
+		if( lives == 0 ){
+			this.pacman.dead = true;
+			this.GameOver = game.add.text(140, 190, "GAME OVER", { fontSize: "80px", fill: "#a00000"});
+			this.pacman.destroy();
+		}
+		}
+	},
+//=========================================================================================		
         update: function () {
 
 	    this.timeText.text = totalTime;
@@ -332,6 +478,9 @@
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
             this.physics.arcade.overlap(this.pacman, this.bonusDots, this.eatBonDot, null, this);		//for bonus
 
+	this.physics.arcade.collide(this.enemy1, this.layer, this.checkEnemyKeys, null, this);
+	this.physics.arcade.overlap(this.enemy1, this.pacman, this.killPacman, null, this);
+	
             this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
 
