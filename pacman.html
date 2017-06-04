@@ -305,29 +305,28 @@
                 this.dots.callAll('revive');
 		this.bonusDots.callAll('revive');
             }
-        },
+	},
 
  	eatBonDot: function (pacman, bonDot) {
- 	    bonDot.kill();
-		
-         var audio = new Audio('assets/milkDrop.wav');
-         audio.play();
-		
-  	    bonusScore += 10;
- 	    bonusText.text = 'Bonus: ' + bonusScore;
-//   	    score = score += 10;
-// 	    scoreText.text = 'Score: ' + score;
-	    if ( this.bonusDots.total === 0 )
-            {
-		    lives ++;
-		    livesText.text = ' ' + lives;
-//                 this.bonusDots.callAll('revive');
-	    }
+ 		bonDot.kill();
+
+        	var audio = new Audio('assets/milkDrop.wav');
+        	audio.play();
+
+  		bonusScore += 10;
+ 		bonusText.text = 'Bonus: ' + bonusScore;
+//   		score = score += 10;
+// 		scoreText.text = 'Score: ' + score;
+		if ( this.bonusDots.total === 0 ) {
+			lives ++;
+			livesText.text = ' ' + lives;
+//			this.bonusDots.callAll('revive');
+		}
 	},
 		
         update: function () {
 
-	    //this.timeText.text = totalTime;
+	    this.timeText.text = totalTime;
             
 	    this.physics.arcade.collide(this.pacman, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
@@ -344,14 +343,11 @@
 
             this.checkKeys();
 
-            if (this.turning !== Phaser.NONE)
-            {
-                this.turn();
-            }
-
+		if (this.turning !== Phaser.NONE) {
+			this.turn();
+		}
         }
-
-    };
+};
 
     game.state.add('Game', Pacman, true);
 
