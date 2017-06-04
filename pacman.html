@@ -318,6 +318,8 @@
 	
         update: function () {
 
+	    MUSIC.play('', 0, 1, true);
+	    
 	    this.timeText.text = totalTime;
             
 	    this.physics.arcade.collide(this.pacman, this.layer);
