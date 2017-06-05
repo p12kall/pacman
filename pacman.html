@@ -341,7 +341,7 @@
 			audioWinning.play();
 			totalScore = score + bonusScore + totalTime;
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-			splitScore = game.add.text(130, 290, '(+ Bonus): ' + bonusScore + '\n' + '(+ Extra time): ' + totalTime, {font: '16px Verdana', fill: 'yellow'},
+			splitScore = game.add.text(130, 300, '+ Bonus: ' + bonusScore + '+ Extra time: ' + this.totalTime, {font: '16px Verdana', fill: 'yellow'},
 			this.pacman.destroy();
 			timer.stop();
 		}
