@@ -39,7 +39,7 @@
 
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 60;
+	var totalTime = 10;
 
     var Pacman = function (game) {
 
@@ -170,7 +170,7 @@
 			livesText.text = ' ' + lives;
 			var audioLose = new Audio('assets/Buzzer.mp3');
 			audioLose.play();
-			totalTime = 60;
+			totalTime = 30;
 			if (lives == 0) {
 				totalTime = 0;
 				this.pacman.destroy();
@@ -338,8 +338,10 @@
 			this.GameOver = game.add.text(160, 175, "YOU WIN!", { fontSize: "100px", fill: "white"});
 			var audioWinning = new Audio('assets/Air Horn.mp3');
 			audioWinning.play();
-			totalScore = score + bonusScore;
-			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
+			totalScore = score + bonusScore + totalTime;
+			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'},
+							130, 290, '(+ Bonus) ' + bonusScore, {font: '16px Verdana', fill: 'yellow'},
+							130, 310, '(+ Extra time) ' + totalTime, {font: '16px Verdana', fill: 'yellow'});
 			this.pacman.destroy();
 			timer.stop();
 		}
