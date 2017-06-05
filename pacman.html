@@ -13,11 +13,11 @@
 			background-size: 100% auto;
         	}
 	</style>
-<!--
+
 	<audio  autoplay loop> 
 		<source src="assets/Mahna Mahna - 8Bit.mp3" type="audio/mpeg">
 	</audio>
--->
+
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
     
 </head>
@@ -34,9 +34,12 @@
     var bonusScore = 0;
     var bonusText = '';
         
+    var totalScore = 0;
+    var totalScoreText='';
+
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 30;
+	var totalTime = 3;
 
     var Pacman = function (game) {
 
@@ -168,8 +171,9 @@
 			if (lives == 0) {
 				totalTime = 0;
 				this.pacman.destroy();
+				totalScore = score + bonusScore;
 				this.GameOver = game.add.text(100, 180, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
-				totalScoreText = game.add.text(150, 260, 'Total Score: '+totalScore, {font: '24px Verdana', fill: 'yellow'});
+				totalScoreText = game.add.text(150, 260, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 				timer.stop();
 			}
 		}
