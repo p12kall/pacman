@@ -12,6 +12,29 @@
 			background-attachment: fixed;
 			background-size: 100% auto;
         	}
+		
+		homeBtn {
+			margin-top: 100px;
+			line-height: 60px;
+			font-weight: bold;
+			padding: 10%;
+			background: red;
+			border: none;
+		}
+		button: hover {
+			background: red;
+		}
+		replayBtn {
+			margin-top: 100px;
+			line-height: 60px;
+			font-weight: bold;
+			padding: 10%;
+			background: red;
+			border: none;
+		}
+		button: hover {
+			background: red;
+		}
 	</style>
 
 	<audio  autoplay loop> 
@@ -36,7 +59,7 @@
         
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 59;
+	var totalTime = 30;
 
     var Pacman = function (game) {
 
@@ -164,12 +187,21 @@
 		else {
 			lives--;
 			livesText.text = ' ' + lives;
-			totalTime = 59;
+			totalTime = 30;
 			if (lives == 0) {
 				totalTime = 0;
 				this.pacman.destroy();
 				this.GameOver = game.add.text(100, 180, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
+				totalScoreText = game.add.text(150, 260, 'Total Score: '+totalScore, {font: '24px Verdana', fill: 'yellow'});
 				timer.stop();
+				
+				var homeBtn = document.createElement("button");
+				button.innerHTML = "Home Page";
+				var body = document.getElementsByTagName("body")[10];
+				body.appendChild(homeBtn); 
+				button.addEventListener ("click", function() {
+					location.reload();
+				});
 			}
 		}
 	},
@@ -327,7 +359,8 @@
 			this.bonusDots.callAll('revive');
 
 		if (this.dots.total === 0) {
-			this.GameOver = game.add.text(180, 200, "YOU WIN!", { fontSize: "100px", fill: "white"});
+			this.GameOver = game.add.text(160, 200, "YOU WIN!", { fontSize: "100px", fill: "white"});
+			
 		}
 	},
 
