@@ -14,10 +14,10 @@
         	}
 	</style>
     
-<!--	<audio  autoplay loop> 
+	<audio  autoplay loop> 
 		<source src="assets/Mahna Mahna - 8Bit.mp3" type="audio/mpeg">
 	</audio>
--->
+
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
     
 </head>
@@ -284,7 +284,7 @@
 	
 	Left2Right: function() {
 		this.pacman.destroy();
-		this.pacman = this.add.sprite((25 * 16) + 8, (25 * 16) + 8, 'pacman', 0);
+		this.pacman = this.add.sprite((26 * 16) + 8, (28 * 16) + 8, 'pacman', 0);
 		this.pacman.anchor.set(0.5);
 		this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
 		this.physics.arcade.enable(this.pacman);
