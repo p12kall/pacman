@@ -149,7 +149,7 @@
             this.move(Phaser.LEFT);
 	
 	    //Set and Display TIMER
-	    this.timeText = game.add.text(215, 475, totalTime, {font: '26px Arial Black', fill: 'yellow' });
+	    this.timeText = game.add.text(215, 465, totalTime, {font: '26px Arial Black', fill: 'yellow' });
 	    timer = game.time.create(false);
 	    timer.loop(1000, this.updateCounter, this);
 	    timer.start();
