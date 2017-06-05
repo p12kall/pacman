@@ -149,7 +149,7 @@
             this.move(Phaser.LEFT);
 	
 	    //Set and Display TIMER
-	    this.timeText = game.add.text(215, 465, totalTime, {font: '26px Arial Black', fill: 'yellow' });
+	    this.timeText = game.add.text(215, 470, totalTime, {font: '26px Arial Black', fill: 'yellow' });
 	    timer = game.time.create(false);
 	    timer.loop(1000, this.updateCounter, this);
 	    timer.start();
@@ -171,7 +171,7 @@
 				totalTime = 0;
 				this.pacman.destroy();
 				totalScore = score + bonusScore;
-				this.GameOver = game.add.text(100, 200, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
+				this.GameOver = game.add.text(110, 200, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
 				totalScoreText = game.add.text(140, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 				timer.stop();
 			}
