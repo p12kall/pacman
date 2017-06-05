@@ -281,45 +281,43 @@
 
         },
 	
-<!--	Left2Right: function() {
-		this.pacman.destroy();
-		this.pacman = this.add.sprite((35 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
-		this.pacman.animations.add('munch', [0, 1, 2, 1], 40, true);
-		this.pacman.anchor.set(0.5);
-		this.physics.arcade.enable(this.pacman);
-		this.pacman.body.setSize(16, 16, 0, 0);
-		this.pacman.play('munchDOWN');
-		this.move(Phaser.NONE);
-	};
--->
-        eatDot: function (pacman, dot) {
-            dot.kill();
-	 
-         var audio = new Audio('assets/dotCollecting.wav');
-         audio.play();	    
-		
-            score ++;
-            scoreText.text = 'Score: ' + score;
-		
-	     if ( score === ( Math.floor( Math.random() * 6 ) +49 ) )
-            	this.bonusDots.callAll('kill');
-	    else if ( score === ( Math.floor( Math.random() * 6 ) +139 ) )
-		this.bonusDots.callAll('revive');
-	    else if ( score === ( Math.floor( Math.random() * 6 ) +199 ) )
-		this.bonusDots.callAll('revive');
+//	Left2Right: function() {
+//		this.pacman.destroy();
+//		this.pacman = this.add.sprite((35 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
+//		this.pacman.animations.add('munch', [0, 1, 2, 1], 40, true);
+//		this.pacman.anchor.set(0.5);
+//		this.physics.arcade.enable(this.pacman);
+//		this.pacman.body.setSize(16, 16, 0, 0);
+//		this.pacman.play('munchDOWN');
+//		this.move(Phaser.NONE);
+//	};
 
-            if (this.dots.total === 0)
-            {
-		this.GameOver = game.add.text(190, 190, "YOU WIN!", { fontSize: "80px", fill: "white"});
-            }
+        eatDot: function (pacman, dot) {
+            
+		dot.kill();
+		var audio = new Audio('assets/dotCollecting.wav');
+		audio.play();	    
+		
+		score ++;
+		scoreText.text = 'Score: ' + score;
+		
+		if ( score === ( Math.floor( Math.random() * 6 ) +49 ) )
+            		this.bonusDots.callAll('kill');
+		else if ( score === ( Math.floor( Math.random() * 6 ) +139 ) )
+			this.bonusDots.callAll('revive');
+		else if ( score === ( Math.floor( Math.random() * 6 ) +199 ) )
+			this.bonusDots.callAll('revive');
+
+		if (this.dots.total === 0) {
+			this.GameOver = game.add.text(190, 190, "YOU WIN!", { fontSize: "80px", fill: "white"});
+		}
 	},
 
  	eatBonDot: function (pacman, bonDot) {
- 		bonDot.kill();
-
+ 		
+		bonDot.kill();
         	var audio = new Audio('assets/milkDrop.wav');
         	audio.play();
-
   		bonusScore += 10;
  		bonusText.text = 'Bonus: ' + bonusScore;
 //   		score = score += 10;
