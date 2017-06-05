@@ -1,11 +1,3 @@
-## Παραδοτέο 3 - Πρόσθεσε score, bonus, ζωές και ήχους, 8 Μαΐου
-**Οι προσθήκες που πραγματοποιήθηκαν είναι οι εξής:**
-* Προσθήκη Score στο κάτω αριστερά μέρος της οθόνης όπου μετράει 1 πόντο για κάθε μια pokeball που μαζεύει ο χαρακτήρας και 10 πόντους (bonus) για κάθε greatball που μαζεύει ο χαρακτήρας.
-
- 
- 
-
-
 ## Pacman
 
 **Τεχνολογία Λογισμικού
@@ -85,13 +77,13 @@ https://p12kall.github.io/pacman/pacman.html
 *  [startBtn.png](https://github.com/p12kall/pacman/blob/master/assets/startBtn.png)
 
 ** Ήχοι:**
-*  [Air Horn.mp3](https://github.com/p12kall/pacman/blob/master/assets/Air Horn.mp3)
+*  [Air_Horn.mp3](https://github.com/p12kall/pacman/blob/master/assets/Air Horn.mp3)
 *  [Buzzer.mp3](https://github.com/p12kall/pacman/blob/master/assets/Buzzer.mp3)
-*  [Joker Laugh.mp3](https://github.com/p12kall/pacman/blob/master/assets/Joker Laugh.mp3)
+*  [Joker_Laugh.mp3](https://github.com/p12kall/pacman/blob/master/assets/Joker Laugh.mp3)
 *  [dotCollecting.wav](https://github.com/p12kall/pacman/blob/master/assets/dotCollecting.wav)
 *  [milkDrop.wav](https://github.com/p12kall/pacman/blob/master/assets/milkDrop.wav)
-*  [Mahna Mahna - 8Bit.mp3](https://github.com/p12kall/pacman/blob/master/assets/Mahna Mahna - 8Bit.mp3)
-*  [The Fray - Mahna Mahna.mp3](https://github.com/p12kall/pacman/blob/master/assets/The Fray - Mahna Mahna.mp3)
+*  [Mahna_Mahna_-_8Bit.mp3](https://github.com/p12kall/pacman/blob/master/assets/Mahna Mahna - 8Bit.mp3)
+*  [The_Fray_-_Mahna Mahna.mp3](https://github.com/p12kall/pacman/blob/master/assets/The Fray - Mahna Mahna.mp3)
   
 ** Για την πίστα:**
 *  [pacman-tiles.png](https://github.com/p12kall/pacman/blob/master/assets/pacman-tiles.png)
