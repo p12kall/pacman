@@ -284,7 +284,7 @@
 	
 	Left2Right: function() {
 		this.pacman.destroy();
-		this.pacman = this.add.sprite((3 * 16) + 8, (5 * 16) + 8, 'pacman', 0);
+		this.pacman = this.add.sprite((28 * 16) + 8, (35 * 16) + 8, 'pacman', 0);
 		this.pacman.anchor.set(0.5);
 		this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
 		this.physics.arcade.enable(this.pacman);
@@ -348,8 +348,12 @@
 	    this.physics.arcade.collide(this.pacman, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
             this.physics.arcade.overlap(this.pacman, this.bonusDots, this.eatBonDot, null, this);		//for bonus
-	
-            this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
+	    
+	    //  Teleporting
+	    this.physics.arcade.overlap(this.pacman, this.teleport1, this.Left2Right, null, this);
+	    this.physics.arcade.overlap(this.pacman, this.teleport2, this.Right2Left, null, this);	
+           
+	    this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
 
             //  Update our grid sensors
@@ -358,9 +362,7 @@
             this.directions[3] = this.map.getTileAbove(this.layer.index, this.marker.x, this.marker.y);
             this.directions[4] = this.map.getTileBelow(this.layer.index, this.marker.x, this.marker.y);
 	    
-	    //  Teleporting
-	    this.physics.arcade.overlap(this.pacman, this.teleport1, this.Left2Right, null, this);
-	    this.physics.arcade.overlap(this.pacman, this.teleport2, this.Right2Left, null, this);
+
 
             this.checkKeys();
 
