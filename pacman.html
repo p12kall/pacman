@@ -39,7 +39,7 @@
 
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 60;
+	var totalTime = 40;
 
     var Pacman = function (game) {
 
@@ -330,8 +330,8 @@
 
 		if (this.dots.total === 0) {
 			this.GameOver = game.add.text(160, 200, "YOU WIN!", { fontSize: "100px", fill: "white"});
-//			totalScore = score + bonusScore;
-			totalScoreText = game.add.text(140, 265, 'Total Score: ' + this.totalScore, {font: '24px Verdana', fill: 'yellow'});
+			totalScore = score + bonusScore;
+			totalScoreText = game.add.text(140, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 			this.pacman.destroy();
 			timer.stop();
 		}
