@@ -12,10 +12,12 @@
 	    background-attachment: fixed;
 	    background-size: 100% auto;
         }
-	<audio  autoplay loop> 
-		<source src="assets/Mahna Mahna - 8Bit.mp3" type="audio/mpeg">
-	</audio>
     </style>
+    
+    <audio  autoplay loop> 
+	<source src="assets/Mahna Mahna - 8Bit.mp3" type="audio/mpeg">
+    </audio>
+    
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
     
 </head>
@@ -79,11 +81,6 @@
             //this.load.baseURL = 'https://p12kall.github.io/pacman/';
             //this.load.crossOrigin = 'anonymous';
 	    
-	    // Sounds
-	    this.load.sound('gameMusic','assets/Mahna Mahna - 8Bit.mp3');	//background music of the game
-	    this.load.sound('gameOverSound','assets/Game_Over.wav');		//sound for "Game Over"
-	    this.load.sound('failSound','assets/fail Sound Effect.wav');	//sound for fail
-	    
 	    // Figures & Extras
 	    this.load.image('dot', 'assets/dot.png');
 	    this.load.image('bonDot', 'assets/bonusDot.png');			//image for bonus
@@ -99,10 +96,6 @@
         },
 
         create: function () {
-
-	    MUSIC = game.add.audio('gameSound');
-	    GameOver = game.add.audio('gameOverSound');
-	    TimeOut = game.add.audio('failSound');
 	    
             this.map = this.add.tilemap('map');
             this.map.addTilesetImage('pacman-tiles', 'tiles');
