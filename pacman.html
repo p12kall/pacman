@@ -39,7 +39,7 @@
 
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 5;
+	var totalTime = 3;
 
     var Pacman = function (game) {
 
@@ -160,13 +160,15 @@
 	    livesText = game.add.text(30, 0, ' '+lives, {font: '16px Arial Black', fill: 'red'});		//display lives
             scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'white'});		//display score
             bonusText = game.add.text(350, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
+	    
+	    pbMusic.play();
+	    
 	},
 	    
 	updateCounter: function () {
 	
 		if (totalTime > 0) {
 			totalTime--;
-			pbMusic.play();
 		}
 		else {
 			lives--;
