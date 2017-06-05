@@ -164,7 +164,7 @@
 	    
 	updateCounter: function () {
 	
-		pbMusic.play('', 0, 1, true);
+		pbMusic.play();
 		
 		if (totalTime > 0) {
 			totalTime--;
@@ -179,12 +179,12 @@
 				totalTime = 0;
 				this.pacman.destroy();
 				totalScore = score + bonusScore;
-				this.GameOver = game.add.text(105, 175, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
+				this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
 				var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 				audioGameOver.play();
 				totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 				timer.stop();
-				pbMusic.stop('', 0, 1, true);
+				pbMusic.stop();
 			}
 		}
 	},
@@ -347,7 +347,7 @@
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 			this.pacman.destroy();
 			timer.stop();
-			pbMusic.stop('', 0, 1, true);
+			pbMusic.stop();
 		}
 	},
 
