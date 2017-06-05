@@ -32,11 +32,10 @@
     var scoreText = '';
         
     var bonusScore = 0;
-    var bonusText = '';
+    var bonusScoreText = '';
         
     var totalScore = 0;
     var totalScoreText = '';
-    var splitScore = '';
     
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
@@ -155,7 +154,7 @@
 	    
 	    livesText = game.add.text(30, 0, ' '+lives, {font: '16px Arial Black', fill: 'red'});		//display lives
             scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'white'});		//display score
-            bonusText = game.add.text(350, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
+            bonusScoreText = game.add.text(350, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
 	    
 	    pbMusic.play();
 	    
@@ -341,7 +340,6 @@
 			audioWinning.play();
 			totalScore = score + bonusScore + totalTime;
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-			splitScore = game.add.text(130, 300, '+ Bonus: ' + bonusScore + '+ Extra time: ' + this.totalTime, {font: '16px Verdana', fill: 'yellow'},
 			this.pacman.destroy();
 			timer.stop();
 		}
@@ -353,7 +351,7 @@
         	var audio = new Audio('assets/milkDrop.wav');
         	audio.play();
   		bonusScore += 10;
- 		bonusText.text = 'Bonus: ' + bonusScore;
+ 		bonusScoreText.text = 'Bonus: ' + bonusScore;
 		totalTime += 10;
 //   		score = score += 10;
 // 		scoreText.text = 'Score: ' + score;
