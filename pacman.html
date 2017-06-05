@@ -14,10 +14,10 @@
         	}
 	</style>
 
-<!--	<audio  autoplay loop> 
+	<audio  autoplay loop> 
 		<source src="assets/Mahna Mahna - 8Bit.mp3" type="audio/mpeg">
 	</audio>
--->
+
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
     
 </head>
@@ -88,7 +88,8 @@
 	    this.load.image('dot', 'assets/dot.png');
 	    this.load.image('bonDot', 'assets/bonusDot.png');			//image for bonus
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
-	    this.load.image('teleport','assets/circle.png');
+	    this.load.image('teleport', 'assets/circle.png');
+	    this.load.image('homeBtn', 'assets/homeButton.gif');
 	    
 	    // Map of the game
 	    this.load.image('tiles', 'assets/pacman-tiles.png');
@@ -157,6 +158,9 @@
 	    livesText = game.add.text(30, 0, ' '+lives, {font: '16px Arial Black', fill: 'red'});		//display lives
             scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'white'});		//display score
             bonusText = game.add.text(350, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
+	    
+	    this.homeBtn = this.add.sprite(100, 280, 'homeBtn');
+	    this.homeBtn.visible = false;
 
 	},
 	    
@@ -175,6 +179,7 @@
 				this.GameOver = game.add.text(100, 200, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
 				totalScoreText = game.add.text(140, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 				timer.stop();
+				this.homeBtn.visible = true;
 			}
 		}
 	},
@@ -335,6 +340,7 @@
 			this.GameOver = game.add.text(160, 200, "YOU WIN!", { fontSize: "100px", fill: "white"});
 			totalScoreText = game.add.text(140, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 			this.pacman.destroy();
+			this.homeBtn.visible = true;
 		}
 	},
 
