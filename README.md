@@ -1,7 +1,9 @@
 # Pacman
 
 Τεχνολογία Λογισμικού
+
 Ονοματεπώνυμο: Αντρέας Καλλή
+
 Αριθμός Μητρώου: Π2014186
 
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -59,30 +61,52 @@ https://p12kall.github.io/pacman/firstIndex.html
 Εφαρμογές που χρησιμοποιήθηκαν:
 
 PIXLR
+
 Tiled
+
 Notepad++
+
 Paint
 
 Αρχεία που εισήχθηκαν ή δημιουργήθηκαν:
 
+
 Εικόνες:
+  
   pacman.png
+  
   dot.png
+  
   bonusDot.png
+  
   background.png
+  
   circle.png
+  
   firstIndex.png
+  
   startBtn.png
 
+
 Ήχοι:
+  
   Air Horn.mp3
+  
   Buzzer.mp3
+  
   Joker Laugh.mp3
+  
   dotCollecting.wav
+  
   milkDrop.wav
+  
   Mahna Mahna - 8Bit.mp3
+  
   The Fray - Mahna Mahna.mp3
   
+  
 Για την πίστα:
+  
   pacman-tiles.png
+  
   pacman-map.json
