@@ -327,7 +327,7 @@
 			this.bonusDots.callAll('revive');
 
 		if (this.dots.total === 0) {
-			this.GameOver = game.add.text(190, 190, "YOU WIN!", { fontSize: "80px", fill: "white"});
+			this.GameOver = game.add.text(180, 200, "YOU WIN!", { fontSize: "100px", fill: "white"});
 		}
 	},
 
@@ -338,8 +338,7 @@
         	audio.play();
   		bonusScore += 10;
  		bonusText.text = 'Bonus: ' + bonusScore;
-		totalTime = totalTime += 10;
-		this.timeText = totalTime;
+		totalTime += 10;
 //   		score = score += 10;
 // 		scoreText.text = 'Score: ' + score;
 		if ( this.bonusDots.total === 0 ) {
