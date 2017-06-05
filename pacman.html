@@ -89,8 +89,6 @@
 	    this.load.image('bonDot', 'assets/bonusDot.png');			//image for bonus
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
 	    this.load.image('teleport', 'assets/circle.png');
-	    this.load.image('homeBtn', 'assets/homeButton.gif');
-	    this.load.html('homePage', 'firstIndex.html');
 	    
 	    // Map of the game
 	    this.load.image('tiles', 'assets/pacman-tiles.png');
@@ -159,10 +157,6 @@
 	    livesText = game.add.text(30, 0, ' '+lives, {font: '16px Arial Black', fill: 'red'});		//display lives
             scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'white'});		//display score
             bonusText = game.add.text(350, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
-	    
-	    this.homeBtn = this.add.sprite(100, 280, 'homeBtn');
-	    this.homeBtn.visible = false;
-
 	},
 	    
 	updateCounter: function () {		
@@ -180,12 +174,6 @@
 				this.GameOver = game.add.text(100, 200, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
 				totalScoreText = game.add.text(140, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 				timer.stop();
-				
-				this.homeBtn.visible = true;
-				homeBtn.inputEnabled = true;
-<!--				homeBtn.events.onInputUp.add(function () {
-					this.homePage.reload();
-				}-->
 			}
 		}
 	},
