@@ -1,20 +1,20 @@
 ## Pacman
 
-**Τεχνολογία Λογισμικού
+**Τεχνολογία Λογισμικού**
 
-**Ονοματεπώνυμο: Αντρέας Καλλή
+**Ονοματεπώνυμο: Αντρέας Καλλή**
 
-**Αριθμός Μητρώου: Π2014186
+**Αριθμός Μητρώου: Π2014186**
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-## ΠΑΡΑΔΟΤΕΟ 1 - Δήλωση και δέσμευση θέματος ( 20 Φεβρουαρίου )
+## ΠΑΡΑΔΟΤΕΟ 1 - Δήλωση και δέσμευση θέματος (20 Φεβρουαρίου)
 
 Επιλογή Εργασίας: Θέμα 1 - Pacman
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-## ΠΑΡΑΔΟΤΕΟ 2 - Άλλαγή πρωταγωνιστή, επιπλέον αντικείμενα και νέα πίστα ( 13 Μαρτίου )
+## ΠΑΡΑΔΟΤΕΟ 2 - Άλλαγή πρωταγωνιστή, επιπλέον αντικείμενα και νέα πίστα (13 Μαρτίου)
 
 1. Αλλαγή του χαρακτήρα-ήρωα (pacman) του παιχνιδιού μέσω της online πλατφόρμας επεξεργασίας εικόνων PIXLR (https://pixlr.com/editor/) και αντικατάστασή του με νέο χαρακτήρα (Cookie Monster) μέσω ανεβάσματος στο προσωπικό αποθετήριο, στον χώρο των assets.
 
@@ -27,7 +27,7 @@ https://p12kall.github.io/pacman/pacman.html
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-## ΠΑΡΑΔΟΤΕΟ 3 - Πρόσθεσε score, bonus, ζωές και ήχους ( 8 Μαΐου )
+## ΠΑΡΑΔΟΤΕΟ 3 - Πρόσθεσε score, bonus, ζωές και ήχους (8 Μαΐου)
 
 1. Δημιουργία μεταβλητών (Score και bonusScore) για καταμέτρηση του σκόρ και του μπόνους αντίστοιχα. Επίσης δημιουργήθηκε μεταβλητή lives για την αρίθμηση και τον έλεγχο των ζωών του χαρακτήρα-ήρωα μας.
 
@@ -40,7 +40,7 @@ https://p12kall.github.io/pacman/pacman.html
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-## ΠΑΡΑΔΟΤΕΟ 4 - Πρόσθεσε εχθρούς και χρόνο ( 6 Ιουνίου )
+## ΠΑΡΑΔΟΤΕΟ 4 - Πρόσθεσε εχθρούς και χρόνο (6 Ιουνίου)
 
 1. Κατασκευή html αρχείου (firstIndex.html) με σχεδίαση αρχικής σελίδας με αναπαραγωγή του ήχου που ήταν στο αρχικό html (pacman.html) και αντικατάσταση του από το pacman.html με 8-bit ήχο. Επίσης στο νέο αρχείο html τοποθετήθηκε κουμπί (startBtn.png) που παραπέμπει στο html του παιχνιδιού.
 
@@ -52,9 +52,9 @@ https://p12kall.github.io/pacman/pacman.html
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-**[link](https://github.com/p12kall/pacman) προσωπικού αποθετηρίου:**
+**[LINK](https://github.com/p12kall/pacman) προσωπικού αποθετηρίου.**
 
-**[link](https://p12kall.github.io/pacman/firstIndex.html) εκτελέσιμοu κώδικα:**
+**[LINK](https://p12kall.github.io/pacman/firstIndex.html) εκτελέσιμοu κώδικα.**
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
@@ -64,27 +64,3 @@ https://p12kall.github.io/pacman/pacman.html
 * Tiled
 * Notepad++
 * Paint
-
-**Αρχεία που εισήχθηκαν ή δημιουργήθηκαν:**
-
-** Εικόνες:** 
-*  [pacman.png](https://github.com/p12kall/pacman/blob/master/assets/pacman.png)
-*  [dot.png](https://github.com/p12kall/pacman/blob/master/assets/dot.png)
-*  [bonusDot.png](https://github.com/p12kall/pacman/blob/master/assets/bonusDot.png)
-*  [background.png](https://github.com/p12kall/pacman/blob/master/assets/background.png)
-*  [circle.png](https://github.com/p12kall/pacman/blob/master/assets/circle.png)
-*  [firstIndex.png](https://github.com/p12kall/pacman/blob/master/assets/firstIndex.png)
-*  [startBtn.png](https://github.com/p12kall/pacman/blob/master/assets/startBtn.png)
-
-** Ήχοι:**
-*  [Air_Horn.mp3](https://github.com/p12kall/pacman/blob/master/assets/Air Horn.mp3)
-*  [Buzzer.mp3](https://github.com/p12kall/pacman/blob/master/assets/Buzzer.mp3)
-*  [Joker_Laugh.mp3](https://github.com/p12kall/pacman/blob/master/assets/Joker Laugh.mp3)
-*  [dotCollecting.wav](https://github.com/p12kall/pacman/blob/master/assets/dotCollecting.wav)
-*  [milkDrop.wav](https://github.com/p12kall/pacman/blob/master/assets/milkDrop.wav)
-*  [Mahna_Mahna_-_8Bit.mp3](https://github.com/p12kall/pacman/blob/master/assets/Mahna Mahna - 8Bit.mp3)
-*  [The_Fray_-_Mahna Mahna.mp3](https://github.com/p12kall/pacman/blob/master/assets/The Fray - Mahna Mahna.mp3)
-  
-** Για την πίστα:**
-*  [pacman-tiles.png](https://github.com/p12kall/pacman/blob/master/assets/pacman-tiles.png)
-*  [pacman-map.json](https://github.com/p12kall/pacman/blob/master/assets/pacman-map.json)
