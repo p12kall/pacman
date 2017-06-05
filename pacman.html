@@ -90,6 +90,7 @@
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
 	    this.load.image('teleport', 'assets/circle.png');
 	    this.load.image('homeBtn', 'assets/homeButton.gif');
+	    this.load.html('homePage', 'firstIndex.html');
 	    
 	    // Map of the game
 	    this.load.image('tiles', 'assets/pacman-tiles.png');
@@ -179,7 +180,12 @@
 				this.GameOver = game.add.text(100, 200, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
 				totalScoreText = game.add.text(140, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 				timer.stop();
+				
 				this.homeBtn.visible = true;
+				homeBtn.inputEnabled = true;
+				homeBtn.events.onInputUp.add(function () {
+					this.homePage.reload();
+				}
 			}
 		}
 	},
