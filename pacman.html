@@ -14,9 +14,9 @@
         	}
 	</style>
     
-	<audio  autoplay loop> 
+<!--	<audio  autoplay loop> 
 		<source src="assets/Mahna Mahna - 8Bit.mp3" type="audio/mpeg">
-	</audio>
+	</audio> -->
 
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
     
@@ -85,7 +85,7 @@
 	    this.load.image('dot', 'assets/dot.png');
 	    this.load.image('bonDot', 'assets/bonusDot.png');			//image for bonus
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
-	    this.load.image('teleport','transparent-circle,jpg');
+	    this.load.image('teleport','assets/transparent-circle,jpg');
 	    
 	    // Map of the game
 	    this.load.image('tiles', 'assets/pacman-tiles.png');
@@ -291,7 +291,7 @@
 		this.pacman.body.setSize(16, 16, 0, 0);
 		this.pacman.play('munch');
 		this.move(Phaser.LEFT);
-	};
+	},
 	
 	Right2Left: function() {
 		this.pacman.destroy();
@@ -302,7 +302,7 @@
 		this.pacman.body.setSize(16, 16, 0, 0);
 		this.pacman.play('munch');
 		this.move(Phaser.LEFT);
-	};
+	},
 
         eatDot: function (pacman, dot) {
             
