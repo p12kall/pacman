@@ -330,8 +330,10 @@
 
 		if (this.dots.total === 0) {
 			this.GameOver = game.add.text(160, 200, "YOU WIN!", { fontSize: "100px", fill: "white"});
-			totalScoreText = game.add.text(140, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
+//			totalScore = score + bonusScore;
+			totalScoreText = game.add.text(140, 265, 'Total Score: ' + this.totalScore, {font: '24px Verdana', fill: 'yellow'});
 			this.pacman.destroy();
+			timer.stop();
 		}
 	},
 
