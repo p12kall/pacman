@@ -121,8 +121,8 @@
             this.dots.setAll('y', 6, false, false, 1);
 	    
 	    //	We dont need these 2 following lines because images for bonus are fixed by default in the grid
-//           this.bonusDots.setAll('x', 0, false, false, 1);		//for bonus
-//           this.bonusDots.setAll('y', 0, false, false, 1);		//for bonus
+//          this.bonusDots.setAll('x', 0, false, false, 1);		//for bonus
+//          this.bonusDots.setAll('y', 0, false, false, 1);		//for bonus
 	    
 	    //  Teleporting placement
 	    this.teleport1.setAll('x', 3, false, false, 1);
@@ -152,11 +152,9 @@
 	    timer.loop(1000, this.updateCounter, this);
 	    timer.start();
 	    
-	    livesText = game.add.text(30, 0, ' '+lives, {font: '16px Arial Black', fill: 'red'});		//display lives
+	    livesText = game.add.text(30, 0, ' ' + lives, {font: '16px Arial Black', fill: 'red'});		//display lives
             scoreText = game.add.text(180, 0, 'Score: 0', {font: '16px Verdana', fill: 'white'});		//display score
             bonusScoreText = game.add.text(350, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
-	    
-	    pbMusic.play();
 	    
 	},
 	    
