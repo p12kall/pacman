@@ -13,11 +13,11 @@
 			background-size: 100% auto;
         	}
 	</style>
-  
+  <!--
 	<audio  autoplay loop> 
 		<source src="assets/Mahna Mahna - 8Bit.mp3" type="audio/mpeg">
 	</audio>
-
+-->
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
     
 </head>
@@ -122,6 +122,10 @@
 	    //	We dont need these 2 following lines because images for bonus are fixed by default in the grid
 //           this.bonusDots.setAll('x', 0, false, false, 1);		//for bonus
 //           this.bonusDots.setAll('y', 0, false, false, 1);		//for bonus
+	    
+	    //  Teleporting placement
+	    this.teleport.setAll('x', 1, false, false, 1);
+	    this.teleport.setAll('y', 0, false, false, 1);
 
             //  Pacman should collide with everything except the safe tile
             this.map.setCollisionByExclusion([this.safetile], true, this.layer);
