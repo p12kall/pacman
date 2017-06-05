@@ -14,9 +14,9 @@
         	}
 	</style>
     
-	<audio  autoplay loop> 
+<!--	<audio  autoplay loop> 
 		<source src="assets/Mahna Mahna - 8Bit.mp3" type="audio/mpeg">
-	</audio>
+	</audio> -->
 
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
     
@@ -358,8 +358,8 @@
             this.directions[4] = this.map.getTileBelow(this.layer.index, this.marker.x, this.marker.y);
 	    
 	    //  Teleporting
-	    this.physics.arcade.overlap(this.pacman, this.teleport1, this.Left2Right, null, this);
-	    this.physics.arcade.overlap(this.pacman, this.teleport2, this.Right2Left, null, this);
+//	    this.physics.arcade.overlap(this.pacman, this.teleport1, this.Left2Right, null, this);
+//	    this.physics.arcade.overlap(this.pacman, this.teleport2, this.Right2Left, null, this);
 
             this.checkKeys();
 
