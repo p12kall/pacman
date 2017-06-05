@@ -13,11 +13,11 @@
 			background-size: 100% auto;
         	}
 	</style>
-<!--	
+	
 	<audio  autoplay loop> 
 		<source src="assets/Mahna Mahna - 8Bit.mp3" type="audio/mpeg">
 	</audio>
--->
+
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
     
 </head>
@@ -93,16 +93,11 @@
 	    // Map of the game
 	    this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.tilemap('map', 'assets/pacman-map.json', null, Phaser.Tilemap.TILED_JSON);
-	    
-	    //Sound
-	    this.load.audio('playBack', 'assets/Mahna Mahna - 8Bit.mp3');
 
             //  Needless to say, graphics (C)opyright Namco
         },
 
         create: function () {
-	    
-	    pbMusic = game.add.audio('playBack');
 	    
             this.map = this.add.tilemap('map');
             this.map.addTilesetImage('pacman-tiles', 'tiles');
@@ -185,7 +180,6 @@
 				audioGameOver.play();
 				totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 				timer.stop();
-				pbMusic.stop();
 			}
 		}
 	},
@@ -348,7 +342,6 @@
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 			this.pacman.destroy();
 			timer.stop();
-			pbMusic.stop();
 		}
 	},
 
