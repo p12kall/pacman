@@ -164,7 +164,7 @@
 		else {
 			lives--;
 			livesText.text = ' ' + lives;
-			totalTime = 5;
+			totalTime = 59;
 			if (lives == 0) {
 				totalTime = 0;
 				this.pacman.destroy();
@@ -338,6 +338,8 @@
         	audio.play();
   		bonusScore += 10;
  		bonusText.text = 'Bonus: ' + bonusScore;
+		totalTime = totalTime += 10;
+		this.timeText = totalTime;
 //   		score = score += 10;
 // 		scoreText.text = 'Score: ' + score;
 		if ( this.bonusDots.total === 0 ) {
