@@ -39,7 +39,7 @@
 
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 7;
+	var totalTime = 5;
 
     var Pacman = function (game) {
 
@@ -164,10 +164,9 @@
 	    
 	updateCounter: function () {
 	
-		pbMusic.play();
-		
 		if (totalTime > 0) {
 			totalTime--;
+			pbMusic.play();
 		}
 		else {
 			lives--;
