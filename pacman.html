@@ -39,7 +39,7 @@
     
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 60;
+	var totalTime = 10;
 
     var Pacman = function (game) {
 
@@ -298,7 +298,7 @@
 	
 	Left2Right: function() {
 		this.pacman.destroy();
-		this.pacman = this.add.sprite((22.5 * 16) + 8, (26 * 16) + 8, 'pacman', 0);
+		this.pacman = this.add.sprite((22 * 16) + 8, (26 * 16) + 8, 'pacman', 0);
 		this.pacman.anchor.set(0.5);
 		this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
 		this.physics.arcade.enable(this.pacman);
