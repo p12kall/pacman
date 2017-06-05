@@ -166,12 +166,16 @@
 		else {
 			lives--;
 			livesText.text = ' ' + lives;
+			var audioLose = new Audio('assets/Buzzer.mp3');
+			audioLose.play();
 			totalTime = 5;
 			if (lives == 0) {
 				totalTime = 0;
 				this.pacman.destroy();
 				totalScore = score + bonusScore;
 				this.GameOver = game.add.text(105, 175, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
+				var audioGameOver = new Audio('assets/Joker Laugh.mp3');
+				audioGameOver.play();
 				totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 				timer.stop();
 			}
@@ -330,6 +334,8 @@
 
 		if (this.dots.total === 0) {
 			this.GameOver = game.add.text(160, 175, "YOU WIN!", { fontSize: "100px", fill: "white"});
+			var audioWinning = new Audio('assets/Air Horn.mp3');
+			audioWinning.play();
 			totalScore = score + bonusScore;
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 			this.pacman.destroy();
