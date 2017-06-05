@@ -39,7 +39,7 @@
     
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 20;
+	var totalTime = 60;
 
     var Pacman = function (game) {
 
@@ -168,7 +168,7 @@
 			livesText.text = ' ' + lives;
 			var audioLose = new Audio('assets/Buzzer.mp3');
 			audioLose.play();
-			totalTime = 30;
+			totalTime = 60;
 			if (lives == 0) {
 				totalTime = 0;
 				this.pacman.destroy();
@@ -298,7 +298,7 @@
 	
 	Left2Right: function() {
 		this.pacman.destroy();
-		this.pacman = this.add.sprite((23 * 16) + 8, (26 * 16) + 8, 'pacman', 0);
+		this.pacman = this.add.sprite((22.5 * 16) + 8, (26 * 16) + 8, 'pacman', 0);
 		this.pacman.anchor.set(0.5);
 		this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
 		this.physics.arcade.enable(this.pacman);
