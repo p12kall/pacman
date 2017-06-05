@@ -1,20 +1,28 @@
-# Pacman
+## Παραδοτέο 3 - Πρόσθεσε score, bonus, ζωές και ήχους, 8 Μαΐου
+**Οι προσθήκες που πραγματοποιήθηκαν είναι οι εξής:**
+* Προσθήκη Score στο κάτω αριστερά μέρος της οθόνης όπου μετράει 1 πόντο για κάθε μια pokeball που μαζεύει ο χαρακτήρας και 10 πόντους (bonus) για κάθε greatball που μαζεύει ο χαρακτήρας.
 
-Τεχνολογία Λογισμικού
+ 
+ 
 
-Ονοματεπώνυμο: Αντρέας Καλλή
 
-Αριθμός Μητρώου: Π2014186
+## Pacman
+
+**Τεχνολογία Λογισμικού
+
+**Ονοματεπώνυμο: Αντρέας Καλλή
+
+**Αριθμός Μητρώου: Π2014186
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-ΠΑΡΑΔΟΤΕΟ 1 - Δήλωση και δέσμευση θέματος ( 20 Φεβρουαρίου )
+## ΠΑΡΑΔΟΤΕΟ 1 - Δήλωση και δέσμευση θέματος ( 20 Φεβρουαρίου )
 
 Επιλογή Εργασίας: Θέμα 1 - Pacman
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-ΠΑΡΑΔΟΤΕΟ 2 - Άλλαγή πρωταγωνιστή, επιπλέον αντικείμενα και νέα πίστα ( 13 Μαρτίου )
+## ΠΑΡΑΔΟΤΕΟ 2 - Άλλαγή πρωταγωνιστή, επιπλέον αντικείμενα και νέα πίστα ( 13 Μαρτίου )
 
 1. Αλλαγή του χαρακτήρα-ήρωα (pacman) του παιχνιδιού μέσω της online πλατφόρμας επεξεργασίας εικόνων PIXLR (https://pixlr.com/editor/) και αντικατάστασή του με νέο χαρακτήρα (Cookie Monster) μέσω ανεβάσματος στο προσωπικό αποθετήριο, στον χώρο των assets.
 
@@ -22,11 +30,12 @@
 
 3. Δημιουργία νέας πίστας μέσω της πλατφόρμας TILED που μας έχετε προτείνει και αντικατάσταση της παλιάς μέσω ανεβάσματος της νέας με ακριβώς το ίδιο όνομα με την default .
 
-link του παιχνιδιού: https://p12kall.github.io/pacman/pacman.html
+**link του παιχνιδιού:** 
+https://p12kall.github.io/pacman/pacman.html
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-ΠΑΡΑΔΟΤΕΟ 3 - Πρόσθεσε score, bonus, ζωές και ήχους ( 8 Μαΐου )
+## ΠΑΡΑΔΟΤΕΟ 3 - Πρόσθεσε score, bonus, ζωές και ήχους ( 8 Μαΐου )
 
 1. Δημιουργία μεταβλητών (Score και bonusScore) για καταμέτρηση του σκόρ και του μπόνους αντίστοιχα. Επίσης δημιουργήθηκε μεταβλητή lives για την αρίθμηση και τον έλεγχο των ζωών του χαρακτήρα-ήρωα μας.
 
@@ -34,11 +43,12 @@ link του παιχνιδιού: https://p12kall.github.io/pacman/pacman.html
 
 3. Προσθήκη ήχων στο background του παιχνιδιού με soundtrack απο την σειρά που εμφανίζεται ο ήρωας. Επίσης ήχοι sound effects προστέθηκαν κατά την συλλογή των dots και κατά την συλλογή των bonus dots.
 
-link του παιχνιδιού: https://p12kall.github.io/pacman/pacman.html
+**link του παιχνιδιού:** 
+https://p12kall.github.io/pacman/pacman.html
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-ΠΑΡΑΔΟΤΕΟ 4 - Πρόσθεσε εχθρούς και χρόνο ( 6 Ιουνίου )
+## ΠΑΡΑΔΟΤΕΟ 4 - Πρόσθεσε εχθρούς και χρόνο ( 6 Ιουνίου )
 
 1. Κατασκευή html αρχείου (firstIndex.html) με σχεδίαση αρχικής σελίδας με αναπαραγωγή του ήχου που ήταν στο αρχικό html (pacman.html) και αντικατάσταση του από το pacman.html με 8-bit ήχο. Επίσης στο νέο αρχείο html τοποθετήθηκε κουμπί (startBtn.png) που παραπέμπει στο html του παιχνιδιού.
 
@@ -50,63 +60,39 @@ link του παιχνιδιού: https://p12kall.github.io/pacman/pacman.html
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-link προσωπικού αποθετηρίου:
-https://github.com/p12kall/pacman
+**[link](https://github.com/p12kall/pacman) προσωπικού αποθετηρίου:**
 
-link σε εκτελέσιμο κώδικα:
-https://p12kall.github.io/pacman/firstIndex.html
+**[link](https://p12kall.github.io/pacman/firstIndex.html) εκτελέσιμοu κώδικα:**
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-Εφαρμογές που χρησιμοποιήθηκαν:
+**Εφαρμογές που χρησιμοποιήθηκαν:**
 
-PIXLR
+* PIXLR
+* Tiled
+* Notepad++
+* Paint
 
-Tiled
+**Αρχεία που εισήχθηκαν ή δημιουργήθηκαν:**
 
-Notepad++
+** Εικόνες:** 
+*  [pacman.png](https://github.com/p12kall/pacman/blob/master/assets/pacman.png)
+*  [dot.png](https://github.com/p12kall/pacman/blob/master/assets/dot.png)
+*  [bonusDot.png](https://github.com/p12kall/pacman/blob/master/assets/bonusDot.png)
+*  [background.png](https://github.com/p12kall/pacman/blob/master/assets/background.png)
+*  [circle.png](https://github.com/p12kall/pacman/blob/master/assets/circle.png)
+*  [firstIndex.png](https://github.com/p12kall/pacman/blob/master/assets/firstIndex.png)
+*  [startBtn.png](https://github.com/p12kall/pacman/blob/master/assets/startBtn.png)
 
-Paint
-
-Αρχεία που εισήχθηκαν ή δημιουργήθηκαν:
-
-
-Εικόνες:
+** Ήχοι:**
+*  [Air Horn.mp3](https://github.com/p12kall/pacman/blob/master/assets/Air Horn.mp3)
+*  [Buzzer.mp3](https://github.com/p12kall/pacman/blob/master/assets/Buzzer.mp3)
+*  [Joker Laugh.mp3](https://github.com/p12kall/pacman/blob/master/assets/Joker Laugh.mp3)
+*  [dotCollecting.wav](https://github.com/p12kall/pacman/blob/master/assets/dotCollecting.wav)
+*  [milkDrop.wav](https://github.com/p12kall/pacman/blob/master/assets/milkDrop.wav)
+*  [Mahna Mahna - 8Bit.mp3](https://github.com/p12kall/pacman/blob/master/assets/Mahna Mahna - 8Bit.mp3)
+*  [The Fray - Mahna Mahna.mp3](https://github.com/p12kall/pacman/blob/master/assets/The Fray - Mahna Mahna.mp3)
   
-  pacman.png
-  
-  dot.png
-  
-  bonusDot.png
-  
-  background.png
-  
-  circle.png
-  
-  firstIndex.png
-  
-  startBtn.png
-
-
-Ήχοι:
-  
-  Air Horn.mp3
-  
-  Buzzer.mp3
-  
-  Joker Laugh.mp3
-  
-  dotCollecting.wav
-  
-  milkDrop.wav
-  
-  Mahna Mahna - 8Bit.mp3
-  
-  The Fray - Mahna Mahna.mp3
-  
-  
-Για την πίστα:
-  
-  pacman-tiles.png
-  
-  pacman-map.json
+** Για την πίστα:**
+*  [pacman-tiles.png](https://github.com/p12kall/pacman/blob/master/assets/pacman-tiles.png)
+*  [pacman-map.json](https://github.com/p12kall/pacman/blob/master/assets/pacman-map.json)
