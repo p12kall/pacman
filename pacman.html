@@ -13,11 +13,11 @@
 			background-size: 100% auto;
         	}
 	</style>
-<!--	
+	
 	<audio  autoplay loop> 
 		<source src="assets/Mahna Mahna - 8Bit.mp3" type="audio/mpeg">
 	</audio>
--->
+
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
     
 </head>
@@ -149,7 +149,7 @@
             this.move(Phaser.LEFT);
 		
             //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
-            this.enemy = this.add.sprite((14 * 16) + 8, (14 * 16) + 8, 'enemy', 0);
+            this.enemy = this.add.sprite((14 * 16) + 8, (11 * 16) + 8, 'enemy', 0);
             this.enemy.anchor.set(0.5);
             this.enemy.animations.add('munch', [0, 1, 2, 1], 20, true);
 		
@@ -391,6 +391,13 @@
 	getCaught: function (enemy, pacman){
 		lives--;
 		livesText.text = ' ' + lives;
+		this.pacman.destroy();
+		this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
+		this.pacman.anchor.set(0.5);
+		this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
+		this.physics.arcade.enable(this.pacman);
+		this.pacman.body.setSize(16, 16, 0, 0);
+		this.pacman.play('munch');
 //		if( lives === 0 ) {
 //			this.pacman.destroy();
 //			totalScore = score + bonusScore;
