@@ -26,7 +26,7 @@
     <script type="text/javascript">
 	    
     // texting handling
-    var restartText = '';
+//    var restartText = '';
 	    
     // lives handling
     var lives = 3;
@@ -46,7 +46,7 @@
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
     // time handling 
     var timer;
-    var totalTime = 3;
+    var totalTime = 5;
 
     var Pacman = function (game) {
 
@@ -177,7 +177,7 @@
 	},
 	    
         catchMe: function(){
-            var enemySpeed = 75;
+            var enemySpeed = 80;
             if (this.pacman.body.x < this.enemy.body.x) {
                 this.enemy.body.velocity.x = enemySpeed * -1;
             }
@@ -406,8 +406,8 @@
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
 			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '14px Verdana', fill: '#FF8000'});
 			timer.stop();
-			lives = 0;
-			livesText.text = ' ' + lives;
+//			lives = 0;
+//			livesText.text = ' ' + lives;
 			pacman.kill();
 		}
 		else{
@@ -430,8 +430,8 @@
 
 		var audioLose = new Audio('assets/Buzzer.mp3');
 		audioLose.play();
-		lives--;
-		livesText.text = ' ' + lives;
+//		lives--;
+//		livesText.text = ' ' + lives;
 		}
 
         },
