@@ -40,7 +40,7 @@
     
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 40;
+	var totalTime = 30;
 
     var Pacman = function (game) {
 
@@ -402,7 +402,7 @@
  			lives--;
 			livesText.text = ' ' + lives;
         	 	lifeTime = game.time.now+1000;
-            	
+		}
 		if( lives == 0 ) {
 			this.pacman.destroy();
 			totalScore = score + bonusScore;
@@ -412,7 +412,6 @@
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 			timer.stop();
 		}
-	    }
         },
 	
         update: function () {
