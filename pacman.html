@@ -40,7 +40,7 @@
     
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 30;
+	var totalTime = 40;
 
     var Pacman = function (game) {
 
@@ -418,8 +418,7 @@
 		livesText.text = ' ' + lives;
 
 		if( lives == 0 ) {
-			this.pacman.destroy();
-			this.enemy.destroy();
+
 			totalScore = score + bonusScore;
 			this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
 			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
