@@ -40,7 +40,7 @@
     
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 29;
+	var totalTime = 40;
 
     var Pacman = function (game) {
 
@@ -401,7 +401,7 @@
 			audioGameOver.play();
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 			timer.stop();
-			this.game.pause();
+			pacman.kill();
 		}
 		else{
 		//  Position Pacman at starting position
