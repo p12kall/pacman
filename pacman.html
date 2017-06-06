@@ -170,7 +170,7 @@
 	},
 	    
         catchMe: function(){
-            var enemySpeed = 50;
+            var enemySpeed = 75;
             if (this.pacman.body.x < this.enemy.body.x) {
                 this.enemy.body.velocity.x = enemySpeed * -1;
             }
@@ -398,15 +398,15 @@
 		this.physics.arcade.enable(this.pacman);
 		this.pacman.body.setSize(16, 16, 0, 0);
 		this.pacman.play('munch');
-//		if( lives === 0 ) {
-//			this.pacman.destroy();
-//			totalScore = score + bonusScore;
-//			this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
-//			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
-//			audioGameOver.play();
-//			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-//			timer.stop();
-//		}
+		if( lives === 0 ) {
+			this.pacman.destroy();
+			totalScore = score + bonusScore;
+			this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
+			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
+			audioGameOver.play();
+			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
+			timer.stop();
+		}
         },
 	
         update: function () {
