@@ -46,7 +46,7 @@
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
     // time handling 
     var timer;
-    var totalTime = 30;
+    var totalTime = 50;
 	    
     var Pacman = function (game) {
         this.map = null;
@@ -260,23 +260,6 @@
             return true;
         },
 	    
-	 turnEnemy: function () {
-            var cx = Math.floor(this.enemy.x);
-            var cy = Math.floor(this.enemy.y);
-            //  This needs a threshold, because at high speeds you can't turn because the coordinates skip past
-            if (!this.math.fuzzyEqual(cx, this.turnPoint.x, this.threshold) || !this.math.fuzzyEqual(cy, this.turnPoint.y, this.threshold))
-            {
-                return false;
-            }
-            //  Grid align before turning
-            this.enemy.x = this.turnPoint.x;
-            this.enemy.y = this.turnPoint.y;
-            this.enemy.body.reset(this.turnPoint.x, this.turnPoint.y);
-            this.move(this.turning);
-            this.turning = Phaser.NONE;
-            return true;
-        },
-	    
         move: function (direction) {
             var speed = this.speed;
             if (direction === Phaser.LEFT || direction === Phaser.UP)
@@ -379,7 +362,7 @@
 			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 			audioGameOver.play();
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
-			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '20px Verdana', fill: '#FF8000'});
+			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '16px Verdana', fill: '#FF8000'});
 			timer.stop();
 			pacman.kill();
 		}
