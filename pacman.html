@@ -211,7 +211,7 @@
 				var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 				audioGameOver.play();
 				totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-				restartText.text = game.add.text(130, 450, 'Press F5 to restart', {font: '24px Verdana', fill: 'yellow'});
+				restartText.text = game.add.text(130, 210, 'Press F5 to restart', {font: '24px Verdana', fill: 'yellow'});
 				timer.stop();
 			}
 		}
@@ -373,7 +373,7 @@
 			audioWinning.play();
 			totalScore = score + bonusScore + totalTime;
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-			restartText.text = game.add.text(130, 450, 'Press F5 to restart', {font: '24px Verdana', fill: 'yellow'});
+			restartText.text = game.add.text(130, 210, 'Press F5 to restart', {font: '24px Verdana', fill: 'yellow'});
 			this.pacman.destroy();
 			timer.stop();
 			totalTime = 0;
@@ -404,7 +404,7 @@
 			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 			audioGameOver.play();
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-			restartText.text = game.add.text(130, 450, 'Press F5 to restart', {font: '24px Verdana', fill: 'yellow'});
+			restartText.text = game.add.text(130, 210, 'Press F5 to restart', {font: '24px Verdana', fill: 'yellow'});
 			timer.stop();
 			pacman.kill();
 		}
