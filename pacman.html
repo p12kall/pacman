@@ -46,7 +46,8 @@
         this.map = null;
         this.layer = null;
         this.pacman = null;
-
+	this.enemy = null;
+	    
         this.safetile = 14;
         this.gridsize = 16;
 
@@ -86,9 +87,10 @@
 	    
 	    // Figures & Extras
 	    this.load.image('dot', 'assets/dot.png');
-	    this.load.image('bonDot', 'assets/bonusDot.png');			//image for bonus
+	    this.load.image('bonDot', 'assets/bonusDot.png');			// image for bonus
+	    this.load.spritesheet('enemy','assets/enemy.png');			// image for the enemy
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
-	    this.load.image('teleport', 'assets/circle.png');
+	    this.load.image('teleport', 'assets/circle.png');			// image for teleport
 	    
 	    // Map of the game
 	    this.load.image('tiles', 'assets/pacman-tiles.png');
@@ -145,7 +147,17 @@
 
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
-	
+		
+            //  Position Pacman at grid location 14x17 (the +8 accounts for his anchor)
+            this.enemy = this.add.sprite((14 * 16) + 8, (14 * 16) + 8, 'enemy', 0);
+            this.enemy.anchor.set(0.5);
+            this.enemy.animations.add('munch', [0, 1, 2, 1], 20, true);
+		
+            this.physics.arcade.enable(this.enemy);
+            this.enemy.body.setSize(16, 16, 0, 0);
+            this.enemy.play('munch');
+            this.move(Phaser.UP);
+		
 	    //Set and Display TIMER
 	    this.timeText = game.add.text(215, 470, totalTime, {font: '26px Arial Black', fill: 'yellow' });
 	    timer = game.time.create(false);
@@ -157,6 +169,22 @@
             bonusScoreText = game.add.text(350, 0, 'Bonus: 0', {font: '16px Verdana', fill: 'white'});		//display bonus score
 	    
 	},
+	    
+        catchMe: function(){
+            var enemySpeed = 50;
+            if (this.pacman.body.x < this.enemy.body.x) {
+                this.enemy.body.velocity.x = enemySpeed * -1;
+            }
+            else{
+                this.enemy.body.velocity.x = enemySpeed;
+            }
+            if (this.pacman.body.y <this.enemy.body.y){
+                this.enemy.body.velocity.y = enemySpeed * -1;
+            }
+            else{
+                this.enemy.body.velocity.y = enemySpeed;
+            }
+        },
 	    
 	updateCounter: function () {
 	
@@ -360,6 +388,22 @@
 //			this.bonusDots.callAll('revive');
 		}
 	},
+	    
+	getCaught: function (enemy, pacman){
+		lives--;
+		livesText.text = ' ' + lives;
+
+            
+		if( lives === 0 ) {
+			this.pacman.destroy();
+			totalScore = score + bonusScore;
+			this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
+			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
+			audioGameOver.play();
+			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
+			timer.stop();
+		}
+        },
 	
         update: function () {
 	    
@@ -367,6 +411,8 @@
             
 	    this.physics.arcade.collide(this.pacman, this.layer);
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
+            this.physics.arcade.collide(this.enemy, this.layer);
+            this.physics.arcade.overlap(this.enemy, this.pacman, this.getCaught, null,this);
             this.physics.arcade.overlap(this.pacman, this.bonusDots, this.eatBonDot, null, this);		//for bonus
 	    
 	    //  Teleporting
@@ -389,6 +435,7 @@
 		if (this.turning !== Phaser.NONE) {
 			this.turn();
 		}
+		this.catchMe();
         }
 };
 
