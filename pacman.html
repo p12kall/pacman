@@ -46,7 +46,7 @@
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
     // time handling 
     var timer;
-    var totalTime = 15;
+    var totalTime = 4;
 
     var Pacman = function (game) {
 
@@ -205,7 +205,7 @@
 			totalTime = 5;
 			if (lives == 0) {
 				totalTime = 0;
-//				this.pacman.destroy();
+				this.pacman.destroy();
 				totalScore = score + bonusScore;
 				this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
 				var audioGameOver = new Audio('assets/Joker Laugh.mp3');
@@ -406,8 +406,8 @@
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
 			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '14px Verdana', fill: '#FF8000'});
 			timer.stop();
-//			lives = 0;
-//			livesText.text = ' ' + lives;
+			lives = 0;
+			livesText.text = ' ' + lives;
 			pacman.kill();
 		}
 		else{
@@ -430,8 +430,8 @@
 
 		var audioLose = new Audio('assets/Buzzer.mp3');
 		audioLose.play();
-//		lives--;
-//		livesText.text = ' ' + lives;
+		lives--;
+		livesText.text = ' ' + lives;
 		}
 
         },
