@@ -40,7 +40,7 @@
     
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 20;
+	var totalTime = 30;
 
     var Pacman = function (game) {
 
@@ -398,20 +398,18 @@
 		this.physics.arcade.enable(this.pacman);
 		this.pacman.body.setSize(16, 16, 0, 0);
 		this.pacman.play('munch');
-		if(game.time.now > this.lifeTime) {
-			var audioLose = new Audio('assets/Buzzer.mp3');
-			audioLose.play();
- 			this.lives--;
-			this.livesText.text = ' ' + this.lives;
-			this.lifeTime = game.time.now+1000;
-		}
-		if( this.lives == 0 ) {
-			this.totalScore = this.score + this.bonusScore;
+		var audioLose = new Audio('assets/Buzzer.mp3');
+		audioLose.play();
+		lives--;
+		livesText.text = ' ' + lives;
+
+		if( lives == 0 ) {
+			totalScore = score + bonusScore;
 			this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
 			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 			audioGameOver.play();
-			this.totalScoreText = game.add.text(130, 265, 'Total Score: ' + this.totalScore, {font: '24px Verdana', fill: 'yellow'});
-			this.timer.stop();
+			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
+			timer.stop();
 		}
         },
 	
