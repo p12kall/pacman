@@ -26,6 +26,7 @@
     <script type="text/javascript">
 
     var lives = 3;
+    var lifeTime = 0;
     var livesText = '';
 
     var score = 0;
@@ -39,7 +40,7 @@
     
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 60;
+	var totalTime = 40;
 
     var Pacman = function (game) {
 
@@ -389,8 +390,7 @@
 	},
 	    
 	getCaught: function (enemy, pacman){
-		lives--;
-		livesText.text = ' ' + lives;
+
 		this.pacman.destroy();
 		this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
 		this.pacman.anchor.set(0.5);
@@ -398,6 +398,11 @@
 		this.physics.arcade.enable(this.pacman);
 		this.pacman.body.setSize(16, 16, 0, 0);
 		this.pacman.play('munch');
+		if(game.time.now > lifeTime) {
+ 			lives--;
+			livesText.text = ' ' + lives;
+        	 	lifeTime = game.time.now+1000;
+            	
 		if( lives == 0 ) {
 			this.pacman.destroy();
 			totalScore = score + bonusScore;
@@ -407,6 +412,7 @@
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 			timer.stop();
 		}
+	    }
         },
 	
         update: function () {
