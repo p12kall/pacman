@@ -46,7 +46,7 @@
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
     // time handling 
     var timer;
-    var totalTime = 5;
+    var totalTime = 55;
     var Pacman = function (game) {
         this.map = null;
         this.layer = null;
@@ -188,7 +188,7 @@
 				var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 				audioGameOver.play();
 				totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
-				restartText.text = game.add.text(145, 300, '(Press F5 to restart)', {font: '18px', fill: '#FF8000'});
+				restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '20px', fill: '#FF8000'});
 				timer.stop();
 			}
 		}
@@ -323,7 +323,7 @@
 			audioWinning.play();
 			totalScore = score + bonusScore + totalTime;
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
-			restartText.text = game.add.text(145, 300, '(Press F5 to restart)', {font: '18px', fill: '#FF8000'});
+			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '20px', fill: '#FF8000'});
 			this.pacman.kill();
 			timer.stop();
 			totalTime = 0;
@@ -353,7 +353,7 @@
 			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 			audioGameOver.play();
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
-			restartText.text = game.add.text(145, 300, '(Press F5 to restart)', {font: '18px', fill: '#FF8000'});
+			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '20px', fill: '#FF8000'});
 			timer.stop();
 			pacman.kill();
 		}
