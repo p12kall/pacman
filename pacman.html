@@ -46,7 +46,7 @@
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
     // time handling 
     var timer;
-    var totalTime = 3;
+    var totalTime = 5;
     var Pacman = function (game) {
         this.map = null;
         this.layer = null;
@@ -187,8 +187,8 @@
 				this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
 				var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 				audioGameOver.play();
-				totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-				restartText.text = game.add.text(game.world.centerX, 300, 'Press F5 to restart', {font: '22px', fill: 'yellow'});
+				totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
+				restartText.text = game.add.text(145, 300, '(Press F5 to restart)', {font: '18px', fill: '#FF8000'});
 				timer.stop();
 			}
 		}
@@ -322,9 +322,9 @@
 			var audioWinning = new Audio('assets/Air Horn.mp3');
 			audioWinning.play();
 			totalScore = score + bonusScore + totalTime;
-			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-			restartText.text = game.add.text(game.world.centerX, 300, 'Press F5 to restart', {font: '22px', fill: 'yellow'});
-			this.pacman.destroy();
+			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
+			restartText.text = game.add.text(145, 300, '(Press F5 to restart)', {font: '18px', fill: '#FF8000'});
+			this.pacman.kill();
 			timer.stop();
 			totalTime = 0;
 		}
@@ -352,8 +352,8 @@
 			this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
 			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 			audioGameOver.play();
-			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-			restartText.text = game.add.text(game.world.centerX, 300, 'Press F5 to restart', {font: '22px', fill: 'yellow'});
+			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
+			restartText.text = game.add.text(145, 300, '(Press F5 to restart)', {font: '18px', fill: '#FF8000'});
 			timer.stop();
 			pacman.kill();
 		}
