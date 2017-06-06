@@ -398,7 +398,7 @@
 		this.physics.arcade.enable(this.pacman);
 		this.pacman.body.setSize(16, 16, 0, 0);
 		this.pacman.play('munch');
-		if( lives === 0 ) {
+		if( lives == 0 ) {
 			this.pacman.destroy();
 			totalScore = score + bonusScore;
 			this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
