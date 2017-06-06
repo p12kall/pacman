@@ -24,23 +24,29 @@
 <body>
     
     <script type="text/javascript">
-
+	    
+    // texting handling
+    var restartText = '';
+	    
+    // lives handling
     var lives = 3;
     var lifeTime = 0;
     var livesText = '';
-
+    // score handling
     var score = 0;
     var scoreText = '';
-        
+    // bonus score handling
     var bonusScore = 0;
     var bonusScoreText = '';
-        
+    
+    // total score handling   
     var totalScore = 0;
     var totalScoreText = '';
     
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
-	var timer;
-	var totalTime = 60;
+    // time handling 
+    var timer;
+    var totalTime = 30;
 
     var Pacman = function (game) {
 
@@ -205,8 +211,7 @@
 				var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 				audioGameOver.play();
 				totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-				stateText.text = "Press F5 to restart";
-				stateText.visible = true;
+				restartText.text = game.add.text(game.world.centerX, 300, 'Press F5 to restart', {font: '22px', fill: 'yellow'});
 				timer.stop();
 			}
 		}
@@ -363,13 +368,12 @@
 			this.bonusDots.callAll('revive');
 
 		if (this.dots.total === 0) {
-			this.GameOver = game.add.text(160, 175, "YOU WIN!", { fontSize: "100px", fill: "white"});
+			this.GameOver = game.add.text(160, 175, "YOU WON!", { fontSize: "100px", fill: "white"});
 			var audioWinning = new Audio('assets/Air Horn.mp3');
 			audioWinning.play();
 			totalScore = score + bonusScore + totalTime;
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-			stateText.text = "Press F5 to restart";
-			stateText.visible = true;
+			restartText.text = game.add.text(game.world.centerX, 300, 'Press F5 to restart', {font: '22px', fill: 'yellow'});
 			this.pacman.destroy();
 			timer.stop();
 			totalTime = 0;
@@ -400,9 +404,8 @@
 			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 			audioGameOver.play();
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
+			restartText.text = game.add.text(game.world.centerX, 300, 'Press F5 to restart', {font: '22px', fill: 'yellow'});
 			timer.stop();
-			stateText.text = "Press F5 to restart";
-			stateText.visible = true;
 			pacman.kill();
 		}
 		else{
