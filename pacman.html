@@ -13,11 +13,11 @@
 			background-size: 100% auto;
         	}
 	</style>
-	
+<!--	
 	<audio  autoplay loop> 
 		<source src="assets/Mahna Mahna - 8Bit.mp3" type="audio/mpeg">
 	</audio>
-
+-->
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
     
 </head>
@@ -88,7 +88,7 @@
 	    // Figures & Extras
 	    this.load.image('dot', 'assets/dot.png');
 	    this.load.image('bonDot', 'assets/bonusDot.png');			// image for bonus
-	    this.load.spritesheet('enemy','assets/enemy.png');			// image for the enemy
+	    this.load.spritesheet('enemy', 'assets/enemy.png', 32, 32);		// image for the enemy
             this.load.spritesheet('pacman', 'assets/pacman.png', 32, 32);
 	    this.load.image('teleport', 'assets/circle.png');			// image for teleport
 	    
@@ -156,7 +156,7 @@
             this.physics.arcade.enable(this.enemy);
             this.enemy.body.setSize(16, 16, 0, 0);
             this.enemy.play('munch');
-            this.move(Phaser.UP);
+//            this.move(Phaser.UP);
 		
 	    //Set and Display TIMER
 	    this.timeText = game.add.text(215, 470, totalTime, {font: '26px Arial Black', fill: 'yellow' });
@@ -170,21 +170,21 @@
 	    
 	},
 	    
-        catchMe: function(){
-            var enemySpeed = 50;
-            if (this.pacman.body.x < this.enemy.body.x) {
-                this.enemy.body.velocity.x = enemySpeed * -1;
-            }
-            else{
-                this.enemy.body.velocity.x = enemySpeed;
-            }
-            if (this.pacman.body.y <this.enemy.body.y){
-                this.enemy.body.velocity.y = enemySpeed * -1;
-            }
-            else{
-                this.enemy.body.velocity.y = enemySpeed;
-            }
-        },
+//        catchMe: function(){
+//            var enemySpeed = 50;
+//            if (this.pacman.body.x < this.enemy.body.x) {
+//                this.enemy.body.velocity.x = enemySpeed * -1;
+//            }
+//            else{
+//                this.enemy.body.velocity.x = enemySpeed;
+//            }
+//            if (this.pacman.body.y <this.enemy.body.y){
+//                this.enemy.body.velocity.y = enemySpeed * -1;
+//            }
+//            else{
+//                this.enemy.body.velocity.y = enemySpeed;
+//            }
+//        },
 	    
 	updateCounter: function () {
 	
@@ -392,17 +392,15 @@
 	getCaught: function (enemy, pacman){
 		lives--;
 		livesText.text = ' ' + lives;
-
-            
-		if( lives === 0 ) {
-			this.pacman.destroy();
-			totalScore = score + bonusScore;
-			this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
-			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
-			audioGameOver.play();
-			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-			timer.stop();
-		}
+//		if( lives === 0 ) {
+//			this.pacman.destroy();
+//			totalScore = score + bonusScore;
+//			this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
+//			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
+//			audioGameOver.play();
+//			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
+//			timer.stop();
+//		}
         },
 	
         update: function () {
@@ -435,7 +433,7 @@
 		if (this.turning !== Phaser.NONE) {
 			this.turn();
 		}
-		this.catchMe();
+//		this.catchMe();
         }
 };
 
