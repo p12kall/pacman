@@ -46,7 +46,7 @@
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
     // time handling 
     var timer;
-    var totalTime = 60;
+    var totalTime = 50;
 	    
     var Pacman = function (game) {
         this.map = null;
@@ -348,10 +348,11 @@
 			var audioWinning = new Audio('assets/Air Horn.mp3');
 			audioWinning.play();
 			totalScore = score + bonusScore + totalTime + lives * 100 ;
-			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
-			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '20px Verdana', fill: '#FF8000'});
+			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore + '\n -Bonus: + ' + bonusScore + '\n -Time: + ' + totalTime + '\n -Lives: 100*' + lives, {font: '24px Verdana', fill: '#FF8000'});
+			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '16px Verdana', fill: '#FF8000'});
 			this.pacman.kill();
 			timer.stop();
+			lives = 0
 			totalTime = 0;
 		}
 	},
