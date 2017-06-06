@@ -209,6 +209,7 @@
 				var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 				audioGameOver.play();
 				totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
+				extraText = game.add.text(130, 300, ' Score: ' + score + '\n Bonus: + ' + bonusScore, {font: '16px Verdana', fill: '#FF8000'});
 				restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '18px Verdana', fill: 'white'});
 				timer.stop();
 			}
@@ -345,12 +346,12 @@
 		else if ( totalTime === ( Math.floor( Math.random() * 5 ) +10 ) )
 			this.bonusDots.callAll('revive');
 		if (this.dots.total === 0) {
-			this.GameOver = game.add.text(160, 175, "YOU WON!", { fontSize: "100px", fill: "white"});
+			this.GameOver = game.add.text(160, 175, "YOU WON!", { fontSize: "80px", fill: "white"});
 			var audioWinning = new Audio('assets/Air Horn.mp3');
 			audioWinning.play();
 			totalScore = score + bonusScore + totalTime + lives * 100 ;
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
-			extraText = game.add.text(130, 285, 'Score: ' + score + '\n +Bonus: + ' + bonusScore + '\n +Time: + ' + totalTime + '\n +Lives: 100*' + lives, {font: '18px Verdana', fill: '#FF8000'});
+			extraText = game.add.text(130, 300, ' Score: ' + score + '\n Bonus: + ' + bonusScore + '\n Time: + ' + totalTime + '\n Lives: 100*' + lives, {font: '16px Verdana', fill: '#FF8000'});
 			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '16px Verdana', fill: 'white'});
 			this.pacman.kill();
 			timer.stop();
@@ -385,6 +386,7 @@
 			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 			audioGameOver.play();
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
+			extraText = game.add.text(130, 300, ' Score: ' + score + '\n Bonus: + ' + bonusScore + '\n Time: + ' + totalTime, {font: '16px Verdana', fill: '#FF8000'});
 			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '16px Verdana', fill: 'white'});
 			lives = 0;
 			livesText.text = ' ' + lives;
