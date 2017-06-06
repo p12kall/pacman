@@ -40,7 +40,7 @@
     
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 	var timer;
-	var totalTime = 20;
+	var totalTime = 30;
 
     var Pacman = function (game) {
 
@@ -394,29 +394,6 @@
 	},
 	    
 	getCaught: function (enemy, pacman){
-
-		//  Position Pacman at starting position
-		this.pacman.destroy();
-		this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
-		this.pacman.anchor.set(0.5);
-		this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
-		this.physics.arcade.enable(this.pacman);
-		this.pacman.body.setSize(16, 16, 0, 0);
-		this.pacman.play('munch');
-		//  Position Enemy at starting position
-		this.enemy.destroy();
-		this.enemy = this.add.sprite((14 * 16) + 8, (11 * 16) + 8, 'enemy', 0);
-		this.enemy.anchor.set(0.5);
-		this.enemy.animations.add('munch', [0, 1, 2, 1], 20, true);
-		this.physics.arcade.enable(this.enemy);
-		this.enemy.body.setSize(16, 16, 0, 0);
-		this.enemy.play('munch');
-		
-		var audioLose = new Audio('assets/Buzzer.mp3');
-		audioLose.play();
-		lives--;
-		livesText.text = ' ' + lives;
-
 		if( lives == 0 ) {
 			totalScore = score + bonusScore;
 			this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
@@ -424,7 +401,31 @@
 			audioGameOver.play();
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
 			timer.stop();
-			this.game.destroy();
+			this.pacman.destroy();
+			this.enemy.detroy();
+		}
+		else{
+			//  Position Pacman at starting position
+			this.pacman.destroy();
+			this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
+			this.pacman.anchor.set(0.5);
+			this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
+			this.physics.arcade.enable(this.pacman);
+			this.pacman.body.setSize(16, 16, 0, 0);
+			this.pacman.play('munch');
+			//  Position Enemy at starting position
+			this.enemy.destroy();
+			this.enemy = this.add.sprite((14 * 16) + 8, (11 * 16) + 8, 'enemy', 0);
+			this.enemy.anchor.set(0.5);
+			this.enemy.animations.add('munch', [0, 1, 2, 1], 20, true);
+			this.physics.arcade.enable(this.enemy);
+			this.enemy.body.setSize(16, 16, 0, 0);
+			this.enemy.play('munch');
+
+			var audioLose = new Audio('assets/Buzzer.mp3');
+			audioLose.play();
+			lives--;
+			livesText.text = ' ' + lives;
 		}
         },
 	
