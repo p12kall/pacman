@@ -26,7 +26,7 @@
     <script type="text/javascript">
 	    
     // texting handling
-//    var restartText = '';
+    var restartText = '';
 	    
     // lives handling
     var lives = 3;
@@ -44,9 +44,9 @@
     var totalScoreText = '';
     
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
-    // time handling 
-    var timer;
-    var totalTime = 20;
+	    // time handling 
+	    var timer;
+	    var totalTime = 30;
 
     var Pacman = function (game) {
 
@@ -210,8 +210,8 @@
 				this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
 				var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 				audioGameOver.play();
-				totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
-				restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '14px Verdana', fill: '#FF8000'});
+//				totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
+//				restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '14px Verdana', fill: '#FF8000'});
 				timer.stop();
 			}
 		}
@@ -397,42 +397,42 @@
 		}
 	},
 	    
-	getCaught: function (enemy, pacman){
-		if ( lives == 1 ) {
-			totalScore = score + bonusScore;
-			this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
-			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
-			audioGameOver.play();
-			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
-			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '14px Verdana', fill: '#FF8000'});
-			timer.stop();
-			pacman.kill();
-		}
-		else{
-		//  Position Pacman at starting position
-		this.pacman.destroy();
-		this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
-		this.pacman.anchor.set(0.5);
-		this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
-		this.physics.arcade.enable(this.pacman);
-		this.pacman.body.setSize(16, 16, 0, 0);
-		this.pacman.play('munch');
-		//  Position Enemy at starting position
-		this.enemy.destroy();
-		this.enemy = this.add.sprite((14 * 16) + 8, (11 * 16) + 8, 'enemy', 0);
-		this.enemy.anchor.set(0.5);
-		this.enemy.animations.add('munch', [0, 1, 2, 1], 20, true);
-		this.physics.arcade.enable(this.enemy);
-		this.enemy.body.setSize(16, 16, 0, 0);
-		this.enemy.play('munch');
-
-		var audioLose = new Audio('assets/Buzzer.mp3');
-		audioLose.play();
-		lives--;
-		livesText.text = ' ' + lives;
-		}
-
-        },
+//	getCaught: function (enemy, pacman){
+//		if ( lives == 1 ) {
+//			totalScore = score + bonusScore;
+//			this.GameOver = game.add.text(105, 170, 'GAME OVER', {font: '35px Arial Black', fill: 'red'});
+//			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
+//			audioGameOver.play();
+//			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: '#FF8000'});
+//			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '14px Verdana', fill: '#FF8000'});
+//			timer.stop();
+//			pacman.kill();
+//		}
+///		else{
+//		//  Position Pacman at starting position
+//		this.pacman.destroy();
+//		this.pacman = this.add.sprite((14 * 16) + 8, (17 * 16) + 8, 'pacman', 0);
+//		this.pacman.anchor.set(0.5);
+//		this.pacman.animations.add('munch', [0, 1, 2, 1], 20, true);
+//		this.physics.arcade.enable(this.pacman);
+//		this.pacman.body.setSize(16, 16, 0, 0);
+//		this.pacman.play('munch');
+//		//  Position Enemy at starting position
+//		this.enemy.destroy();
+//		this.enemy = this.add.sprite((14 * 16) + 8, (11 * 16) + 8, 'enemy', 0);
+//		this.enemy.anchor.set(0.5);
+//		this.enemy.animations.add('munch', [0, 1, 2, 1], 20, true);
+//		this.physics.arcade.enable(this.enemy);
+//		this.enemy.body.setSize(16, 16, 0, 0);
+//		this.enemy.play('munch');
+//
+//		var audioLose = new Audio('assets/Buzzer.mp3');
+//		audioLose.play();
+//		lives--;
+//		livesText.text = ' ' + lives;
+//		}
+//
+  //      },
 	
         update: function () {
 	    
