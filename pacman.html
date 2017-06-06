@@ -46,7 +46,7 @@
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
     // time handling 
     var timer;
-    var totalTime = 130;
+    var totalTime = 13;
 
     var Pacman = function (game) {
 
@@ -165,7 +165,7 @@
             this.enemy.play('munch');
 		
 	    //Set and Display TIMER
-	    this.timeText = game.add.text(215, 470, totalTime, {font: '26px Arial Black', fill: 'yellow' });
+	    this.timeText = game.add.text(213, 470, totalTime, {font: '26px Arial Black', fill: 'yellow' });
 	    timer = game.time.create(false);
 	    timer.loop(1000, this.updateCounter, this);
 	    timer.start();
@@ -404,9 +404,10 @@
 			var audioGameOver = new Audio('assets/Joker Laugh.mp3');
 			audioGameOver.play();
 			totalScoreText = game.add.text(130, 265, 'Total Score: ' + totalScore, {font: '24px Verdana', fill: 'yellow'});
-			restartText.text = game.add.text(140, 210, '(Press F5 to restart)', {font: '14px Verdana', fill: 'yellow'});
+			restartText.text = game.add.text(145, 210, '(Press F5 to restart)', {font: '14px Verdana', fill: 'yellow'});
 			timer.stop();
-			lives--;
+			lives = 0;
+			livesText.text = ' ' + lives;
 			pacman.kill();
 		}
 		else{
